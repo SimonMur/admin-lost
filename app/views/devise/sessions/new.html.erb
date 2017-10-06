@@ -1,29 +1,34 @@
 <div class="login-page">
 <div class="login-header">
-<h2>Log in</h2>
+<h3>Sign In your <strong style="color: #E3690F; font-weight: 900">Dashboard</strong> </h3>
 </div>
+<% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissable" style="color:red;">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= value %>
+    </div>
+<% end %>
 <div class="login-body">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, class: 'login-field' %>
+  
+    <%= f.email_field :email, autofocus: true, placeholder: "Email Address", class: 'login-field' %>
   </div>
 
   <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" , class: 'login-field'%>
+    <%= f.password_field :password, autocomplete: "off" , placeholder: "Your password", class: 'login-field'%>
   </div>
 
-  <% if devise_mapping.rememberable? -%>
+  </div>
+  <div class="login-footer">
+  <p style="color: rgba(0,0,0,0.7); font-size: 13px; text-align: center; font-weight: bold;">Prove you are not a robot</p>
+<p><%= captcha_tag %> <%= text_field_tag :captcha%></p>
+<% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>
       <%= f.label :remember_me %>
     </div>
   <% end -%>
-  </div>
-  <div class="login-footer">
-<p><%= captcha_tag %> <%= text_field_tag :captcha%></p>
-
   <div class="actions">
     <%= f.submit "Log in", class: 'btn login-button' %>
   </div>
@@ -31,6 +36,22 @@
 
 </div>
 <div class="login-links">
-<%= render "devise/shared/links" %>
+
+<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
+ <p>Get an account with us <%= link_to "Sign up", new_registration_path(resource_name) %><br /></p>
+<% end -%>
+
+<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+<p> Don't remember your password? <%= link_to "Reset", new_password_path(resource_name) %><br /></p>
+<% end -%>
+
+<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
+ <p> Didn't receive confirmation instructions? <%= link_to "Resend", new_confirmation_path(resource_name) %><br /></p>
+<% end -%>
+
+<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+  <p>Didn't receive unlock instructions? <%= link_to "Resend", new_unlock_path(resource_name) %><br /></p>
+<% end -%>
+
 </div>
 </div>

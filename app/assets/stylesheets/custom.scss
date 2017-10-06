@@ -1,3 +1,7 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+
 body{
 	width: 100%;
 	background: rgba(0,0,0,0.1);
@@ -6,12 +10,13 @@ body{
 /*     LOGIN FORM FEATURES          */
 /************************************/
 .login-page{
+	height: 100%;
 	margin-top: 50px;
 	background: white;
-	width:29%;
+	width:30%;
 	margin-left: 35%;
 	border-radius: 5px;
-	box-shadow: 10px 10px 5px #888888;
+	box-shadow: -10px 10px 5px #888888;
 	border: 2px solid rgba(0,0,0,0.2);
 }
 .login-header{
@@ -20,13 +25,22 @@ body{
 	border-bottom: 1px solid rgba(0,0,0,0.3);
 
 }
+.login-header h3{
+	text-transform: uppercase;
+	color: rgba(0,0,0,0.7);
+	font-weight: 100;
+}
 .login-body{
 	margin-top: 20px;
 	padding: 10px;
 }
+
+.login-body .field{
+	margin-top: 10px;
+}
 .login-body .login-field{
-    margin-bottom: 10px;
-	width: 90%;
+    margin-bottom: 20px;
+	width: 100%;
 	padding: 10px;
 	border: 2px solid rgba(0,0,0,0.3);
 }
@@ -39,8 +53,8 @@ body{
 	color: white;
 	padding: 10px;
 	width: 50%;
-	background: red;
-	border: 1px solid red;
+	background: #E3690F;
+	border: 1px solid #E3690F;
 }
 .login-links{
 	border-top: 1px solid rgba(0,0,0,0.3);
@@ -50,5 +64,5 @@ body{
 	
 }
 .login-links p{
-	padding: 1px;
+	padding: 0px;
 }

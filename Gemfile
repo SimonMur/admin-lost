@@ -9,7 +9,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.6'
 # Use sqlite3 as the database for Active Record
-gem 'pg'
+gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
@@ -26,6 +26,18 @@ gem 'devise_security_extension'
 gem 'rails_email_validator'
 gem 'easy_captcha'
 gem 'rmagick'
+gem 'bootstrap-sass'
+gem 'bootstrap', '~> 4.0.0.alpha6'
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+gem 'carrierwave'
+gem 'cloudinary'
+gem 'font-awesome-rails'
+gem 'chartkick'
+gem "highcharts-rails"
+gem 'hightop'
+gem 'groupdate'
+gem 'active_median', '~> 0.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

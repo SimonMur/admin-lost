@@ -37,9 +37,9 @@ EasyCaptcha.setup do |config|
   config.generator :default do |generator|
 
     # Font
-    generator.font_size              = 40
-    generator.font_fill_color        = '#333333'
-    generator.font_stroke_color      = '#000000'
+    generator.font_size              = 50
+    generator.font_fill_color        = '#E3690F'
+    generator.font_stroke_color      = '#E3690F'
     generator.font_stroke            = 0
     generator.font_family            = File.expand_path('../../resources/afont.ttf', __FILE__)
 
