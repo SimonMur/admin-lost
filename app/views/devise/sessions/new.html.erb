@@ -1,14 +1,17 @@
+<div class="login-page">
+<div class="login-header">
 <h2>Log in</h2>
-
+</div>
+<div class="login-body">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
     <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+    <%= f.email_field :email, autofocus: true, class: 'login-field' %>
   </div>
 
   <div class="field">
     <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
+    <%= f.password_field :password, autocomplete: "off" , class: 'login-field'%>
   </div>
 
   <% if devise_mapping.rememberable? -%>
@@ -17,10 +20,17 @@
       <%= f.label :remember_me %>
     </div>
   <% end -%>
+  </div>
+  <div class="login-footer">
+<p><%= captcha_tag %> <%= text_field_tag :captcha%></p>
 
   <div class="actions">
-    <%= f.submit "Log in" %>
+    <%= f.submit "Log in", class: 'btn login-button' %>
   </div>
 <% end %>
 
+</div>
+<div class="login-links">
 <%= render "devise/shared/links" %>
+</div>
+</div>

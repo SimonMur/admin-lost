@@ -15,8 +15,8 @@ EasyCaptcha.setup do |config|
   config.length         = 6
 
   # Image
-  # config.image_height   = 40
-  # config.image_width    = 140
+  config.image_height   = 60
+  config.image_width    = 200
 
   # eSpeak
   config.espeak do |espeak|
@@ -37,7 +37,7 @@ EasyCaptcha.setup do |config|
   config.generator :default do |generator|
 
     # Font
-    generator.font_size              = 24
+    generator.font_size              = 40
     generator.font_fill_color        = '#333333'
     generator.font_stroke_color      = '#000000'
     generator.font_stroke            = 0
