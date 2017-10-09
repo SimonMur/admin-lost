@@ -15,12 +15,7 @@ class Users::SessionsController < Devise::SessionsController
   # def destroy
   #   super
   # end
-def create
-    if self.resource.failed_attempts != self.resource.class.maximum_attempts - 1 and self.resource.failed_attempts != 0
-        attempts_left = self.resource.failed_attempts
-        flash[:alert] = I18n.t 'some_path.errors.attempts', attempts_left: attempts_left
-   
-end
+
   # protected
 
   # If you have extra params to permit, append them to the sanitizer.
