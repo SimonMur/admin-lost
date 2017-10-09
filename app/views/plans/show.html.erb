@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @plan.name %>
+</p>
+
+<p>
+  <strong>Cost:</strong>
+  <%= @plan.cost %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @plan.duration %>
+</p>
+
+<p>
+  <strong>Support:</strong>
+  <%= @plan.support %>
+</p>
+
+<p>
+  <strong>Admin panel:</strong>
+  <%= @plan.admin_panel %>
+</p>
+
+<p>
+  <strong>Lost id alerts:</strong>
+  <%= @plan.lost_id_alerts %>
+</p>
+
+<p>
+  <strong>Reported id alerts:</strong>
+  <%= @plan.reported_id_alerts %>
+</p>
+
+<%= link_to 'Edit', edit_plan_path(@plan) %> |
+<%= link_to 'Back', plans_path %>

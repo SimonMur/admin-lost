@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006141751) do
+ActiveRecord::Schema.define(version: 20171009122023) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -27,6 +27,18 @@ ActiveRecord::Schema.define(version: 20171006141751) do
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "plans", force: :cascade do |t|
+    t.string   "name"
+    t.string   "cost"
+    t.string   "duration"
+    t.boolean  "support"
+    t.boolean  "admin_panel"
+    t.boolean  "lost_id_alerts"
+    t.boolean  "reported_id_alerts"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -63,8 +75,10 @@ ActiveRecord::Schema.define(version: 20171006141751) do
     t.boolean  "terms"
     t.boolean  "super_user"
     t.string   "user_code"
+    t.integer  "plan_id"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["plan_id"], name: "index_users_on_plan_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end

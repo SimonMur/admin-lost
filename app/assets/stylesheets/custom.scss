@@ -238,3 +238,27 @@ margin-top: 30px;
 	padding: 10px;
 	border: 1px solid rgba(0,0,0,0.3);
 }
+/*************************/
+/***SELCECT PLANS PAGE****/
+/*************************/
+.plan-select-form .container{
+	background: white;
+	padding-bottom: 20px;
+}
+.plan-column{
+	width:30%;
+	float: left;
+	padding: 20px;
+	margin: 10px;
+	border: 1px solid rgba(0,0,0,0.3);
+	border-radius: 5px;
+}
+.plans-form-header h2{	
+	text-align: center;
+	text-transform: uppercase;
+	color: rgba(0,0,0,0.7);
+	padding: 10px;
+}
+.field1{
+	padding: 10px;
+}

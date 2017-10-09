@@ -1,0 +1,28 @@
+<div class="plan-select-form">
+<div class="container">
+<div class="plans-form-header">
+<h2>Select a plan</h2>
+</div>
+<hr>
+    <% @plans.each do |plan| %>
+     <div class="plan-column">
+        <h3><%= plan.name %></h3>
+        <div class="field1">Ksh. <%= plan.cost %></div>
+
+        <div class="field1"><%= plan.duration %> Monthly</div>
+        <div class="field1"><% if plan.support == true %> <i class="fa fa-check"></i>24 Hours Support <%end%></div>
+        <div class="field1"><% if plan.admin_panel == true %> <i class="fa fa-check"></i>Issued with a dashboard <%else%><%end%> </div>
+        <div class="field1"><%if plan.lost_id_alerts== true%> <i class="fa fa-check"></i>Receive Alerts on reported lostitems<%else%><i class="fa fa-times"></i>Receive Alerts on reported lostitems <%end%></div>
+       <div class="field1"><%if plan.reported_id_alerts == true %><i class="fa fa-check"></i>Receive Alerts on Found IDs<%else%><i class="fa fa-times"></i>Receive Alerts on Found IDs<%end%></div>
+       <%= form_for(current_user) do |f| %>
+ 
+ <div class="plan-choose">
+   <%= f.hidden_field :plan_id, :value => plan.id %>
+ <%= f.submit "Choose Plan", class: 'btn btn-primary'%>
+<% end %>
+   </div>
+   </div>
+    <% end %>
+  
+</div>
+</div>

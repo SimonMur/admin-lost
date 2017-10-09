@@ -1,5 +1,5 @@
 class User < ApplicationRecord
- 
+ has_one :plan
  validates :first_name, presence: true
   validates :second_name, presence: true
   validates :idnumber, presence: true

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  cost: MyString
+  duration: MyString
+  support: false
+  admin_panel: false
+  lost_id_alerts: false
+  reported_id_alerts: false
+
+two:
+  name: MyString
+  cost: MyString
+  duration: MyString
+  support: false
+  admin_panel: false
+  lost_id_alerts: false
+  reported_id_alerts: false
