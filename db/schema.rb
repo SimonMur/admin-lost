@@ -10,7 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171006092518) do
+ActiveRecord::Schema.define(version: 20171006141751) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.integer  "county_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["county_id"], name: "index_areas_on_county_id"
+  end
+
+  create_table "counties", force: :cascade do |t|
+    t.string   "name"
+    t.string   "county_code"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -32,6 +49,20 @@ ActiveRecord::Schema.define(version: 20171006092518) do
     t.datetime "locked_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "second_name"
+    t.integer  "county_id"
+    t.string   "idnumber"
+    t.string   "mobilenumber"
+    t.string   "question"
+    t.datetime "dateofbirth"
+    t.string   "picture"
+    t.string   "last_name"
+    t.integer  "area_id"
+    t.boolean  "contract"
+    t.boolean  "terms"
+    t.boolean  "super_user"
+    t.string   "user_code"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

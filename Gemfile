@@ -24,8 +24,6 @@ gem 'devise'
 gem "password_strength"
 gem 'devise_security_extension'
 gem 'rails_email_validator'
-gem 'easy_captcha'
-gem 'rmagick'
 gem 'bootstrap-sass'
 gem 'bootstrap', '~> 4.0.0.alpha6'
 gem 'will_paginate'
@@ -38,6 +36,9 @@ gem "highcharts-rails"
 gem 'hightop'
 gem 'groupdate'
 gem 'active_median', '~> 0.1.0'
+gem 'easy_captcha'
+gem "recaptcha", require: "recaptcha/rails"
+gem 'dotenv-rails', :require => 'dotenv/rails-now'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

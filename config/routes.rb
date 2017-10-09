@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+ 
   captcha_route
-  devise_for :users
+  resources :areas
+  resources :counties
+  devise_for :users, controllers: {registrations: 'users/registrations' }
   get 'pages/welcome'
 devise_scope :user do
   root "devise/sessions#new"

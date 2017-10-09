@@ -9,7 +9,7 @@ Devise.setup do |config|
   # config.expire_password_after = 3.months
 
   # Need 1 char of A-Z, a-z and 0-9
-  # config.password_regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/
+  config.password_regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z])/
 
   # Number of old passwords in archive
   # config.password_archiving_count = 5
@@ -49,13 +49,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'e2e3675076ff951d09b59dfc1290ae03c3b0496681c899159c821204a5fe889f1b4de5f9ca242cff881bde7086dfa91bb843717788863f3c9d135327f4ce9b58'
+  config.secret_key = 'e2e3675076ff951d09b59dfc1290ae03c3b0496681c899159c821204a5fe889f1b4de5f9ca242cff881bde7086dfa91bb843717788863f3c9d135327f4ce9b58'
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'noreply@lostitems.co.ke'
+  config.mailer_sender = 'simonmuriuki411@gmail.com'
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
@@ -77,7 +77,7 @@ Devise.setup do |config|
   # session. If you need permissions, you should implement that in a before filter.
   # You can also supply a hash where the value is a boolean determining whether
   # or not authentication should be aborted when the value is not present.
-  # config.authentication_keys = [:email]
+  config.authentication_keys = [:user_code]
 
   # Configure parameters from the request object used for authentication. Each entry
   # given should be a request method and it will automatically be passed to the

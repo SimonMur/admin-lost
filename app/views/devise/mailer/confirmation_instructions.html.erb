@@ -1,5 +1,28 @@
-<p>Welcome <%= @email %>!</p>
+<style type="text/css">
+	.mail-form{
+		width: 80%;
 
+	}
+	.mail-header{
+		background: rgba(0,0,0,0.7);
+		color: white;
+		text-align: center;
+		font-weight: 900;
+		font-size: 30px;
+	}
+</style>
+<div class="mail-form">
+<div class="mail-header">
+<p>Welcome <%= @first_name %>, <%= @second_name %>!</p>
+<hr>
+</div>
+<div class="mail-body">
+<p>Use the USER CODE : <strong style="font-size: 40px; color: green; font-weight: 900;"><%= @user_code %></strong>  to sign in to your account</p>
 <p>You can confirm your account email through the link below:</p>
 
 <p><%= link_to 'Confirm my account', confirmation_url(@resource, confirmation_token: @token) %></p>
+</div>
+<div class="mail-footer">
+	
+</div>
+</div>
