@@ -11,7 +11,7 @@
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email), placeholder: 'Enter your registered email', class: 'form-field' %>
   </div>
-
+<p><%= captcha_tag %> <%= text_field_tag :captcha%></p>
   <div class="actions">
     <%= f.submit "Resend confirmation instructions", class: 'btn btn-register' %>
   </div>
