@@ -250,7 +250,7 @@ margin-top: 30px;
 	float: left;
 	padding: 20px;
 	margin: 10px;
-	border: 1px solid rgba(0,0,0,0.3);
+	border: 1px solid rgba(32, 131, 14,0.3);
 	border-radius: 5px;
 }
 .plans-form-header h2{	
@@ -259,6 +259,47 @@ margin-top: 30px;
 	color: rgba(0,0,0,0.7);
 	padding: 10px;
 }
+.plan-column h3{
+	text-align: center;
+	text-transform: uppercase;
+}
+.plan-column .plan-price{
+font-weight: 900;
+text-align: center;
+	color: green;
+	font-size: 20px;
+	padding: 15px;
+}
+.plan-column .duration{
+font-weight: 900;
+text-align: center;	
+	font-size: 15px;
+	padding: 10px;
+}
+.plan-column .fa-times{
+	color: red;
+	border: 2px solid red;
+	border-radius: 2px;
+	margin-left: 15px;
+	padding: 5px;
+}
+.plan-column .fa-check{
+	color: green;
+	border: 2px solid green;
+	border-radius: 2px;
+	margin-left: 15px;
+	padding: 5px;
+}
+
 .field1{
 	padding: 10px;
+	color: rgba(0,0,0,0.6);
+	font-size: 12px;
+}
+.plan-choose{
+	text-align:center;
+}
+.plan-choose .btn-success{
+	text-align:center;
+	border-radius: 20px;
 }
