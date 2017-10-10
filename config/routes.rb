@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :plans
   captcha_route
   resources :areas
-  resources :users
+  resources :users, only: [:show]
   resources :counties
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions' }
   get 'pages/welcome'
