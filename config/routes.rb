@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   match '/users.:id',   to: 'users#update',   via: 'put'
 
 devise_scope :user do
-  root "devise/sessions#new"  
+  root "pages#welcome" 
 end
 get "/admin", to: "pages#welcome"
 get "/choose_plan", to: "users#edit"
