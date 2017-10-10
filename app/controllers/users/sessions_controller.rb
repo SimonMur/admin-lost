@@ -25,7 +25,7 @@ class Users::SessionsController < Devise::SessionsController
   # end
   def after_sign_in_path_for(resource)
       if current_user.plan_id.nil?
-      plans_path
+      choose_plan_path
     else
       admin_path
     end

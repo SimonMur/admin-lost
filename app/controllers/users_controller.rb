@@ -11,15 +11,14 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   	@users = User.all
   end
   def update
-    respond_to do |format|
-      if @user.update(plan_params)
-        format.html { redirect_to @user, notice: 'Plan was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
+   
+      if current_user.update(plan_params)
+        redirect_to admin_path, notice: 'you have selected your plan'
+       
       else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+         redirect_to admin_path, notice: 'You have selected your plan.'
       end
-    end
+  
   end
    def destroy
     @user.destroy
@@ -31,7 +30,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user
-      @user = User.find(params[:id])
+      @user = current_user.id
     end
  def plan_params
       params.require(:user).permit(:plan_id)
