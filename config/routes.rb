@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
 
 
+  resources :lostitems
+  resources :types
   resources :plans
   captcha_route
   resources :areas

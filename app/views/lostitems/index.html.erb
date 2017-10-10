@@ -1,0 +1,52 @@
+<%=render 'pages/leftbar'%>
+<div class="dashboard-body">
+<div class="container">
+<%= link_to 'Record a new lost item', new_lostitem_path, class: 'btn btn-sm btn-primary' %>
+
+<h1>Lostitems</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Name</th>
+      <th>Id number</th>
+      <th>Pp number</th>
+      <th>Reg number</th>
+      <th>Other number</th>
+      <th>Date of birth</th>
+      <th>County</th>
+      <th>Location</th>
+      <th>Date found</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lostitems.each do |lostitem| %>
+      <tr>
+        <td><%= lostitem.type.name %></td>
+        <td><%= lostitem.name %></td>
+        <td><%= lostitem.id_number %></td>
+        <td><%= lostitem.pp_number %></td>
+        <td><%= lostitem.reg_number %></td>
+        <td><%= lostitem.other_number %></td>
+        <td><%= lostitem.date_of_birth %></td>
+        <td><%= lostitem.county%></td>
+        <td><%= lostitem.location %></td>
+        <td><%= lostitem.date_found %></td>
+        <td><%= link_to 'Show', lostitem , class: 'btn btn-sm btn-info'%></td>
+        <td><%= link_to 'Edit', edit_lostitem_path(lostitem), class: 'btn btn-sm btn-warning' %></td>
+        <td><%= link_to 'Destroy', lostitem, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+
+</div>
+</div>

@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @lostitem.type %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lostitem.name %>
+</p>
+
+<p>
+  <strong>Id number:</strong>
+  <%= @lostitem.id_number %>
+</p>
+
+<p>
+  <strong>Pp number:</strong>
+  <%= @lostitem.pp_number %>
+</p>
+
+<p>
+  <strong>Reg number:</strong>
+  <%= @lostitem.reg_number %>
+</p>
+
+<p>
+  <strong>Other number:</strong>
+  <%= @lostitem.other_number %>
+</p>
+
+<p>
+  <strong>Date of birth:</strong>
+  <%= @lostitem.date_of_birth %>
+</p>
+
+<p>
+  <strong>County:</strong>
+  <%= @lostitem.county %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @lostitem.location %>
+</p>
+
+<p>
+  <strong>Date found:</strong>
+  <%= @lostitem.date_found %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @lostitem.description %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @lostitem.user %>
+</p>
+
+<%= link_to 'Edit', edit_lostitem_path(@lostitem) %> |
+<%= link_to 'Back', lostitems_path %>

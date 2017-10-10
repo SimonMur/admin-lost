@@ -1,0 +1,285 @@
+<%= form_for(lostitem) do |f| %>
+  <% if lostitem.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lostitem.errors.count, "error") %> prohibited this lostitem from being saved:</h2>
+
+      <ul>
+      <% lostitem.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <% if lostitem.type.nil?%>
+  <div class="field">
+    <%= f.label :Select_Document_type %><br>
+ 
+    <%= f.collection_select :type_id, Type.all, :id, :name, {prompt: "Select Document Type"}, {class: "form-field"}%>
+    
+  </div>
+  <div class="actions" style="text-align: right;">
+    <%= f.submit "Next", class: 'btn btn-primary' %>
+  </div>
+  
+  <div style='display:none'>
+<div class="col-md-6">
+  
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-field' %>
+  </div>
+
+  <div  class="field">
+    <%= f.label :id_number %><br>
+    <%= f.text_field :id_number, class: 'form-field'  %>
+  </div>
+
+  <div class="field" %>
+    <%= f.label :passport_number %><br>
+    <%= f.text_field :pp_number, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :school_registration_number %><br>
+    <%= f.text_field :reg_number, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :other_number %><br>
+    <%= f.text_field :other_number, class: 'form-field'  %>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :county_id %><br>
+   <div class="field">
+    <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
+  </div>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_found %><br>
+    <%= f.date_field :date_found , class: 'form-field' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description , class: 'form-field' %>
+  </div>
+
+   <%= f.hidden_field :user_id, :value => current_user.id %>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+  <%else%>
+  <% if lostitem.type.id== 1 %>
+  <div class="col-md-6">
+   
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-field' %>
+  </div>
+
+  <div  class="field">
+    <%= f.label :id_number %><br>
+    <%= f.text_field :id_number, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :county_id %><br>
+
+    <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
+
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_found %><br>
+    <%= f.date_field :date_found , class: 'form-field' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description , class: 'form-field' %>
+  </div>
+
+ 
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+ 
+  <%end%>
+  <% if lostitem.type.id == 2 %>
+  <div class="col-md-6">
+   
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-field' %>
+  </div>
+  <div class="field" %>
+    <%= f.label :passport_number %><br>
+    <%= f.text_field :pp_number, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :county_id %><br>
+  
+    <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
+ 
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_found %><br>
+    <%= f.date_field :date_found , class: 'form-field' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description , class: 'form-field' %>
+  </div>
+
+  
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+  <% end %>
+  <%if lostitem.type.id == 3 %>
+ <div class="col-md-6">
+   
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-field' %>
+  </div>
+
+ 
+  <div class="field">
+    <%= f.label :school_registration_number %><br>
+    <%= f.text_field :reg_number, class: 'form-field'  %>
+  </div>
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :county_id %><br>
+   <div class="field">
+    <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
+  </div>
+  </div>
+</div>
+<div class="col-md-6">
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_found %><br>
+    <%= f.date_field :date_found , class: 'form-field' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description , class: 'form-field' %>
+  </div>
+
+
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+  <%end%>
+  <% if lostitem.type.id == 4 %>
+  <div class="col-md-6">
+   
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name, class: 'form-field' %>
+  </div>
+
+
+  <div class="field">
+    <%= f.label :other_number %><br>
+    <%= f.text_field :other_number, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_of_birth %><br>
+    <%= f.date_field :date_of_birth, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :county_id %><br>
+   <div class="field">
+    <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
+  </div>
+  </div>
+</div>
+<div class="col-md-6">
+
+  <div class="field">
+    <%= f.label :location %><br>
+    <%= f.text_field :location, class: 'form-field'  %>
+  </div>
+
+  <div class="field">
+    <%= f.label :date_found %><br>
+    <%= f.date_field :date_found , class: 'form-field' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_field :description , class: 'form-field' %>
+  </div>
+</div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  </div>
+  <% end %>
+  <%end%>
+<% end %>

@@ -332,12 +332,7 @@ text-align: center;
 /******************************************/
 
 /*******SIDEDAR****************************/
-.area{
-	padding-bottom:10px;
-	padding-bottom:10px;
-	background: rgba(0,0,0,0.5);
-	color:white;
-}
+
 .fa-2x {
 font-size: 2em;
 }
@@ -361,7 +356,7 @@ overflow:visible;
 .main-menu {
 background:#fbfbfb;
 border-right:1px solid #e5e5e5;
-position:absolute;
+position:fixed;
 top:0;
 bottom:0;
 height:100%;
@@ -464,4 +459,56 @@ height: 100%;
   font-style: normal;
   font-weight: 300;
   src: local('Titillium WebLight'), local('TitilliumWeb-Light'), url(http://themes.googleusercontent.com/static/fonts/titilliumweb/v2/anMUvcNT0H1YN4FII8wpr24bNCNEoFTpS2BTjF6FB5E.woff) format('woff');
+}
+/**************************************/
+/******DASHBOARD***********************/
+/**************************************/
+.dashboard-body{
+
+	margin-left: 5px;	
+}
+.dashboard-body .container{
+padding: 10px;
+margin-top: 10px;
+	background: white;
+}
+.dashboard-header{
+	padding: 10px;
+	text-align:center;
+	text-transform: uppercase;
+	color: rgba(0,0,0,0.6);
+}
+.form-field{
+	padding: 7px;
+	border: 1px border rgba(0,0,0,0.1);
+	width: 90%;
+	margin: 5px;
+}
+.dashboard-body .field{
+	color: rgba(0,0,0,0.6);
+	font-size: 13px;
+}
+/*************tables*************/
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+td{
+	font-size: 11px;
+}
+tr:nth-child(even){background-color:#f3efef; font-size: 11px;}
+
+th {
+	margin-top: 0px;
+    color: white;
+    padding:6px;
+    background: #034229;
+    font-weight: 100;
+    font-size: 13px;
 }

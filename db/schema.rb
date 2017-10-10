@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171009122023) do
+ActiveRecord::Schema.define(version: 20171010105254) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -29,6 +29,26 @@ ActiveRecord::Schema.define(version: 20171009122023) do
     t.datetime "updated_at",  null: false
   end
 
+  create_table "lostitems", force: :cascade do |t|
+    t.integer  "type_id"
+    t.string   "name"
+    t.string   "id_number"
+    t.string   "pp_number"
+    t.string   "reg_number"
+    t.string   "other_number"
+    t.datetime "date_of_birth"
+    t.integer  "county_id"
+    t.string   "location"
+    t.datetime "date_found"
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["county_id"], name: "index_lostitems_on_county_id"
+    t.index ["type_id"], name: "index_lostitems_on_type_id"
+    t.index ["user_id"], name: "index_lostitems_on_user_id"
+  end
+
   create_table "plans", force: :cascade do |t|
     t.string   "name"
     t.string   "cost"
@@ -39,6 +59,13 @@ ActiveRecord::Schema.define(version: 20171009122023) do
     t.boolean  "reported_id_alerts"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "types", force: :cascade do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

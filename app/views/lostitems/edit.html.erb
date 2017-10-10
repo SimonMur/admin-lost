@@ -1,0 +1,9 @@
+<%=render 'pages/leftbar'%>
+<div class="dashboard-body">
+<div class="container">
+<div class="dashboard-header">
+<h1> Record <%= @lostitem.type.name %></h1>
+</div>
+<%= render 'form', lostitem: @lostitem %>
+</div>
+</div>
