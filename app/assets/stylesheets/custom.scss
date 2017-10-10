@@ -336,12 +336,13 @@ text-align: center;
 	padding-bottom:10px;
 	padding-bottom:10px;
 	background: rgba(0,0,0,0.5);
-	color: white;
+	color:white;
 }
 .fa-2x {
 font-size: 2em;
 }
-.fa {
+
+.main-menu .fa {
 position: relative;
 display: table-cell;
 width: 60px;
@@ -361,7 +362,7 @@ overflow:visible;
 background:#fbfbfb;
 border-right:1px solid #e5e5e5;
 position:absolute;
-
+top:0;
 bottom:0;
 height:100%;
 left:0;
