@@ -9,7 +9,14 @@
                         </span>
         <% end %>
                 </li>
-               
+                 <li class="has-subnav">
+                    
+                     <%= link_to lostitems_path do %>
+         <i class="fa fa-user-o fa-2x"></i> <span class="nav-text">
+                            My Profile
+                        </span>
+        <% end %>
+                </li>
                 <li class="has-subnav">
                     
                      <%= link_to lostitems_path do %>
@@ -20,15 +27,15 @@
                 </li>
                 <li>
                     <%= link_to admin_path do %>
-         <i class="fa fa-folder-open fa-2x"></i><span class="nav-text">
-                            LostItems
+         <i class="fa fa-credit-card fa-2x"></i><span class="nav-text">
+                            Billing
                         </span>
         <% end %>
                 </li>
                 <li>
                      <%= link_to admin_path do %>
-        <i class="fa fa-bar-chart-o fa-2x"></i><span class="nav-text">
-                            LostItems
+        <i class="fa fa-bullhorn fa-2x"></i><span class="nav-text">
+                           Notifications
                         </span>
         <% end %>
                 </li>
@@ -37,23 +44,30 @@
                    
                       <%= link_to admin_path do %>
           <i class="fa fa-table fa-2x"></i><span class="nav-text">
-                            LostItems
+                            Reminders
                         </span>
         <% end %>
                 </li>
                 <li>
                       <%= link_to admin_path do %>
            <i class="fa fa-map-marker fa-2x"></i> <span class="nav-text">
-                            Locations
+                            Reported Lost Items Near You
+                        </span>
+        <% end %>
+        </li>
+        <li>
+          <%= link_to admin_path do %>
+           <i class="fa fa-street-view fa-2x"></i> <span class="nav-text">
+                            Found Lost Items Near You
                         </span>
         <% end %>
                 </li>
                 <li>
     
                     <%= link_to admin_path do %>
-           <i class="fa fa-info fa-2x"></i>
+           <i class="fa fa-cogs fa-2x"></i>
                         <span class="nav-text">
-                            Documentation
+                            Settings
                         </span>
         <% end %>
                 </li>

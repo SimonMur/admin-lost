@@ -1,3 +1,28 @@
+<nav class="top-navbar">
+	<div class="container">
+	 <ul class="largenav pull-left">
+	<p class="greet-user">Lostitems Agents Panel </p>
+	</ul>
+	 <ul class="largenav pull-right">
+
+	 <%= link_to admin_path do %>
+         <i class="fa fa-bell fa-nav"></i><span class="label label-warning">10</span>
+        <% end %>
+	 
+	<%= link_to admin_path do %>
+         <i class="fa fa-cogs fa-nav"></i> <span class="nav-text">
+                          
+                        </span>
+        <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+             <i class="fa fa-power-off" fa-nav></i>
+                        <span class="nav-text">
+                           
+                        </span>
+        <% end %>
+	</ul>
+	</div>
+</nav>
 <%=render 'pages/leftbar'%>
 <div class="top-dashboard-row">
 <div class="container">

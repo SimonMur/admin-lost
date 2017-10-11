@@ -2,7 +2,6 @@
 @import "bootstrap";
 @import "font-awesome";
 
-
 /*flash*/
 .alert-error {
     background-color: #f2dede;
@@ -38,6 +37,19 @@
 body{
 	width: 100%;
 	background: rgba(0,0,0,0.1);
+}
+/***********************************/
+/** NAVBAR**************************/
+/***********************************/
+.top-navbar{
+	padding: 15px;
+	border-bottom: 1px solid(0,0,0,0.1);
+	background:rgba(0,0,0,0.005)
+}
+.top-navbar .fa{
+	margin-left: 15px;
+	font-size: 16px;
+	color: rgba(0,0,0,0.3);
 }
 /************************************/
 /*     LOGIN FORM FEATURES          */
@@ -346,8 +358,6 @@ text-align: center;
 vertical-align: middle;
 font-size:20px;
 }
-
-
 .main-menu:hover,nav.main-menu.expanded {
 width:250px;
 overflow:visible;
@@ -469,7 +479,7 @@ height: 100%;
 }
 .dashboard-body .container{
 padding: 10px;
-margin-top: 10px;
+margin-top: 0px;
 	background: white;
 }
 .dashboard-header{
@@ -499,14 +509,27 @@ text-align:center;
 /*	DASHBOARD WELCOME REPORTS PAGE */
 
 .top-dashboard-row {
-	margin: 10px;
+border-top: 1px solid rgba(0,0,0,0.2);
+	margin: 0px;
 	background: white;
+	margin-bottom: 10px;
 }
 .top-dashboard-row .greet-user{
 	font-weight: 100;
 	color: rgba(0,0,0,0.5);
 	text-transform: capitalize;
 	font-size: 25px;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+	text-align: center;
+}
+.greet-user{
+	font-weight: 100;
+	
+	color: rgba(0,0,0,0.5);
+	text-transform: capitalize;
+	font-size: 20px;
 	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	font-family:Calibri Light;
