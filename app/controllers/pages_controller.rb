@@ -3,6 +3,7 @@ class PagesController < ApplicationController
  before_action :check_plan
  def welcome
  	@lostitems = current_user.lostitems
+ 	@notifications = current_user.notifications.limit(3)
   end
   private
 def check_plan

@@ -1,0 +1,21 @@
+<li class="dropdown">
+
+                <a href="#" class="icon-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
+                                            <i class="fa fa-bell-o" aria-hidden="true"></i>
+                                            <span class="label label-info"><%= current_user.notifications.where(read: false).count %></span>
+                                        </a>
+                  <ul class="dropdown-menu" style="min-width: 250px;">
+                  <div class="not-head">
+<p>Notifications</p>
+</div>
+
+   <%= render current_user.notifications.where(read: false).order('created_at DESC').last(5)%>
+   <div class="dropdown-divider">
+   	<%= link_to 'View All Notifications', notifications_path %> 
+   </div>
+
+                  </ul>
+
+               
+
+        </li>

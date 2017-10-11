@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010105254) do
+ActiveRecord::Schema.define(version: 20171011114903) do
 
   create_table "areas", force: :cascade do |t|
     t.string   "name"
@@ -47,6 +47,16 @@ ActiveRecord::Schema.define(version: 20171010105254) do
     t.index ["county_id"], name: "index_lostitems_on_county_id"
     t.index ["type_id"], name: "index_lostitems_on_type_id"
     t.index ["user_id"], name: "index_lostitems_on_user_id"
+  end
+
+  create_table "notifications", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "identifier"
+    t.string   "notice_type"
+    t.boolean  "read"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.index ["user_id"], name: "index_notifications_on_user_id"
   end
 
   create_table "plans", force: :cascade do |t|
@@ -103,6 +113,7 @@ ActiveRecord::Schema.define(version: 20171010105254) do
     t.boolean  "super_user"
     t.string   "user_code"
     t.integer  "plan_id"
+    t.string   "notice_type"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["plan_id"], name: "index_users_on_plan_id"

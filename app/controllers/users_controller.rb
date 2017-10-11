@@ -13,6 +13,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   def update
    
       if current_user.update(plan_params)
+        create_notification
         redirect_to admin_path, notice: 'you have selected your plan'
        
       else
@@ -35,4 +36,9 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
  def plan_params
       params.require(:user).permit(:plan_id)
     end
+    def create_notification
+    Notification.create(user_id: current_user.id,
+                  identifier: current_user.plan_id,
+                        notice_type: 'Welcome, you have successfully selected your plan.')
+end
 end

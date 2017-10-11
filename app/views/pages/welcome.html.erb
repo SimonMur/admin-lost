@@ -6,7 +6,7 @@
 	 <ul class="largenav pull-right">
 
 	 <%= link_to admin_path do %>
-         <i class="fa fa-bell fa-nav"></i><span class="label label-warning">10</span>
+         <i class="fa fa-bell fa-nav"></i><span class="label label-warning"><%= current_user.notifications.count%></span>
         <% end %>
 	 
 	<%= link_to admin_path do %>
@@ -29,7 +29,12 @@
 <div class="col-md-3">
 <div class="notifications">
 	<h3 class="greet-user">Welcome <%= current_user.first_name %></h3>
-	<p>You have X notifications</p>
+	<p style="font-weight: 900; color: rgba(0,0,0,0.8);">You have <%= current_user.notifications.count%> notifications</p>
+	<% @notifications.each do |notification|%>
+ <p style="font-weight: 500;"><%= notification.notice_type %></p>
+ <p style="font-size: 11px;"><i class="fa fa-clock-o fa-nav"></i> <%= notification.created_at.strftime('%b %d, %Y')%></p>
+ <hr>
+  <% end %>
 </div>
 </div>
 <div class="col-md-6">

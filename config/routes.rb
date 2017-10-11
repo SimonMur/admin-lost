@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
 
 
+  get 'notifications/link_through'
+
   resources :lostitems
   resources :types
   resources :plans

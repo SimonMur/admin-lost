@@ -1,6 +1,7 @@
 class User < ApplicationRecord
  has_one :plan
  has_many :lostitems
+ has_many :notifications, dependent: :destroy
  validates :first_name, presence: true
   validates :second_name, presence: true
   validates :idnumber, presence: true
