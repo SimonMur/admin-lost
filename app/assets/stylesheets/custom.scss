@@ -488,6 +488,68 @@ margin-top: 10px;
 	color: rgba(0,0,0,0.6);
 	font-size: 13px;
 }
+.dashboard-body .actions{
+	text-align: center;
+}
+.dashboard-body .btn-success{
+text-align:center;
+	border-radius: 20px;
+}
+
+/*	DASHBOARD WELCOME REPORTS PAGE */
+
+.top-dashboard-row {
+	margin: 10px;
+	background: white;
+}
+.top-dashboard-row .greet-user{
+	font-weight: 100;
+	color: rgba(0,0,0,0.5);
+	text-transform: capitalize;
+	font-size: 25px;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+	text-align: center;
+}
+.top-dashboard-row .notifications{
+	color: rgba(0,0,0,0.5);
+	font-size: 13px;
+
+}
+.middle-dashboard-row {
+	margin-left:5%;
+
+}
+.middle-dashboard-row .mini-col{
+	background: white;
+	padding: 10px;
+	margin: 2px;
+	border-radius: 5px;
+	color: rgba(0,0,0,0.6);
+}
+.middle-dashboard-row .mini-col{
+
+	background: white;
+	padding: 10px;
+	margin: 2px;
+	border-radius: 5px;
+}
+.middle-dashboard-row .mini-col h4{
+font-family:Calibri Light;
+	text-align: right;
+	font-weight: 100;
+	font-size: 20px;
+}
+.middle-dashboard-row .mini-col p{
+	font-size: 12px;
+}
+.middle-dashboard-row .mini-col a{
+	font-size: 12px;
+}
+.middle-dashboard-row .mini-col span{
+	font-size: 11px;
+}
 /*************tables*************/
 
 table {
@@ -512,3 +574,4 @@ th {
     font-weight: 100;
     font-size: 13px;
 }
+

@@ -18,7 +18,7 @@
     
   </div>
   <div class="actions" style="text-align: right;">
-    <%= f.submit "Next", class: 'btn btn-primary' %>
+    <%= f.submit "Next", class: 'btn btn-success' %>
   </div>
   
   <div style='display:none'>
@@ -81,7 +81,7 @@
    <%= f.hidden_field :user_id, :value => current_user.id %>
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: 'btn btn-sm btn-success' %>
   </div>
   </div>
   <%else%>
@@ -130,7 +130,7 @@
  
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: 'btn btn-sm btn-success' %>
   </div>
   </div>
  
@@ -179,7 +179,7 @@
   
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: 'btn btn-sm btn-success'%>
   </div>
   </div>
   <% end %>
@@ -228,7 +228,7 @@
 
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit", class: 'btn btn-sm btn-success'%>
   </div>
   </div>
   <%end%>

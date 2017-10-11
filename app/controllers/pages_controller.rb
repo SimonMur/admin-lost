@@ -2,6 +2,7 @@ class PagesController < ApplicationController
  before_action :authenticate_user! 
  before_action :check_plan
  def welcome
+ 	@lostitems = current_user.lostitems
   end
   private
 def check_plan

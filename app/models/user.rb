@@ -1,5 +1,6 @@
 class User < ApplicationRecord
  has_one :plan
+ has_many :lostitems
  validates :first_name, presence: true
   validates :second_name, presence: true
   validates :idnumber, presence: true
