@@ -1,2 +1,39 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<nav class="top-navbar">
+	<div class="container">
+	 <ul class="largenav pull-left">
+	<p class="greet-user">Lostitems Agents Panel </p>
+	</ul>
+	 <ul class="largenav pull-right">
+
+	 <%= link_to admin_path do %>
+         <i class="fa fa-bell fa-nav"></i><span class="label label-warning"><%= current_user.notifications.count%></span>
+        <% end %>
+	 
+	<%= link_to admin_path do %>
+         <i class="fa fa-cogs fa-nav"></i> <span class="nav-text">
+                          
+                        </span>
+        <% end %>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+             <i class="fa fa-power-off" fa-nav></i>
+                        <span class="nav-text">
+                           
+                        </span>
+        <% end %>
+	</ul>
+	</div>
+</nav>
+<%=render 'pages/leftbar'%>
+<div class="top-dashboard-row">
+<div class="container">
+
+<p><%= @user.email %></p>
+<p><%= @user.first_name %></p>
+<p><%= @user.second_name %></p>
+<p><%= @user.idnumber %></p>
+<p><%= @user.mobilenumber%></p>
+<p><%= @user.dateofbirth%></p>
+<p><%= @user.county_id%></p>
+<p><%= @user.area_id%></p>
+</div>
+</div>
