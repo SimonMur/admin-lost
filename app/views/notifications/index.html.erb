@@ -1,2 +1,39 @@
-<h1>Notifications#link_through</h1>
-<p>Find me in app/views/notifications/link_through.html.erb</p>
+<nav class="top-navbar">
+	<div class="container">
+	 <ul class="largenav pull-left">
+	<p class="greet-user">Lostitems Agents Panel </p>
+	</ul>
+	 <ul class="nav navbar-nav navbar-right">
+
+         <%= render 'notifications/notification_dropdown' %>
+       
+	 <li>
+	<%= link_to admin_path do %>
+         <i class="fa fa-cogs fa-nav"></i> <span class="nav-text">
+                          
+                        </span>
+        <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, method: :delete do %>
+             <i class="fa fa-power-off" fa-nav></i>
+                        <span class="nav-text">
+                           
+                        </span>
+        <% end %>
+        </li>
+	</ul>
+	</div>
+</nav>
+<%=render 'pages/leftbar'%>
+<div class="top-dashboard-row">
+<div class="container">
+<h3 style="font-weight: 900; color: rgba(0,0,0,0.8);">You have <%= current_user.notifications.count%> notifications</h3>
+<hr>
+    <% @notifications.each do |notification|%>
+ <p style="font-weight: 500;"><%= notification.notice_type %></p>
+ <p style="font-size: 11px;"><i class="fa fa-clock-o fa-nav"></i> <%= notification.created_at.strftime('%b %d, %Y')%></p>
+ <hr>
+  <% end %>
+</div>
+</div>

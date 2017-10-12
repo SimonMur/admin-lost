@@ -5,22 +5,23 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
   end
 
   def show
+     @notifications = current_user.notifications
+     @plan = Plan.find(current_user.plan_id)
   end
 
   def index
   	@users = User.all
   end
+
   def update
-   
       if current_user.update(plan_params)
         create_notification
-        redirect_to admin_path, notice: 'you have selected your plan'
-       
+        redirect_to admin_path, notice: 'you have selected your plan' 
       else
          redirect_to admin_path, notice: 'You have selected your plan.'
       end
-  
   end
+
    def destroy
     @user.destroy
     respond_to do |format|
