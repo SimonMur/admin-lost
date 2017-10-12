@@ -10,72 +10,73 @@
 <%else %>
 <p><%= @user.picture %></p>
 <%end%>
+
 </div>
 </div>
 <div class="col-md-5">
-<p><strong>Email Address: </strong> <br> <i class="fa fa-envelope"></i> <%= @user.email %></p>
+<p class="profile-p"><strong>Email Address: </strong> <br> <i class="fa fa-envelope"></i> <%= @user.email %></p>
 <hr>
-<p><strong>Registered Name: </strong><br> <i class="fa fa-user-o"></i> <%= @user.first_name %> <%= @user.second_name %></p>
+<p class="profile-p"><strong>Registered Name: </strong><br> <i class="fa fa-user-o"></i> <%= @user.first_name %> <%= @user.second_name %></p>
 <hr>
-<p><strong>ID Number: </strong><br> <i class="fa fa-id-card-o"></i> <%= @user.idnumber %></p>
+<p class="profile-p"><strong>ID Number: </strong><br> <i class="fa fa-id-card-o"></i> <%= @user.idnumber %></p>
 <hr>
-<p><strong>Mobile Number: </strong><br> <i class="fa fa-phone"></i> <%= @user.mobilenumber%></p>
+<p class="profile-p"><strong>Mobile Number: </strong><br> <i class="fa fa-phone"></i> <%= @user.mobilenumber%></p>
 <hr>
-<p><strong>Date of Birth: </strong><br> <i class="fa fa-calendar"></i> <%= @user.dateofbirth%></p>
+<p class="profile-p"><strong>Date of Birth: </strong><br> <i class="fa fa-calendar"></i> <%= @user.dateofbirth%></p>
 <hr>
-<p><strong>County: </strong><br> <i class="fa fa-globe"></i> <%= @user.county_id%></p>
+<p class="profile-p"><strong>County: </strong><br> <i class="fa fa-globe"></i> <%= @user.county_id%></p>
 <hr>
-<p><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area_id%></p>
+<p class="profile-p"><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area_id%></p>
 <hr>
-<p><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.user_code%></p>
+<p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.user_code%></p>
 </div>
 <div class="col-md-4">
 
- <h4> You are currently on <%= @plan.name %> Plan</h4>
+ <h4 class="profile-h4"> You are currently on <span class="label label-warning"><%= @plan.name %> Plan</span></h4>
   <hr>
 
-<p>
+<p class="profile-p">
  <strong>Your Monthly Billing stands at</strong><br>
   <%= @plan.cost %>
 </p>
 <hr>
-<p>
+<p class="profile-p">
   <strong>This plan is valid for: </strong> <br>
   <%= @plan.duration %> Month
 </p>
 <hr>
-<h4>Your plan has the below Privallages</h4>
+<h4 class="profile-h4">Your plan has the below Privallages</h4>
   <% if @plan.support == true %>
-<p>You will receive 24 hours support</p>
-<% else %>
-Support Functionality is disabled in this plan
-<%end%>
-
- 
-  <%if @plan.admin_panel == true %>
-<p> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">1.</strong>
-You are issued with a dashboard</p>
+<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">1.</strong>You will receive 24 hours support</p>
 <% else %>
 <p><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">1.</strong>Support Functionality is disabled in this plan</p>
 <%end%>
 
+ 
+  <%if @plan.admin_panel == true %>
+<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>
+You are issued with a dashboard</p>
+<% else %>
+<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>Support Functionality is disabled in this plan</p>
+<%end%>
+
 
   <%if @plan.lost_id_alerts == true %>
-  <p><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>
+  <p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>
   You will receive information on the lost items that have been reported</p>
 <%else%>
-<p><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>
+<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>
 Receiving notifications and reports on the  <strong>reported lost items</strong> is not available for this plan. Upgrade to boost your earnings</p>
 <%end%>
 
   <%if @plan.reported_id_alerts == true %>
-  <p><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>
+  <p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">4.</strong>
   You will receive information on the found items near you</p>
 <%else%>
-<p><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>Receiving notifications and reports on the  reports on <strong>found Lost items near you</strong> is not available in this plan. Upgrade to boost your earning</p>
+<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">4.</strong>Receiving notifications and reports on the  reports on <strong>found Lost items near you</strong> is not available in this plan. Upgrade to boost your earning</p>
 <%end%>
 
-<%= link_to 'Upgrade or Downgrade', edit_plan_path(@plan), class: 'btn btn-success' %>
+<%= link_to 'Upgrade or Downgrade', edit_plan_path(@plan), class: 'btn btn-success btn-upgrade' %>
 <h3></h3>
 </div>
 </div>

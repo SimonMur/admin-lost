@@ -649,10 +649,20 @@ th {
 /**********************************/
 /*		USER PROFILE  			  */
 /**********************************/
-.top-dashboard-row .container .user-profile{
-	color: rgba(0,0,0,0.6);
-}
-.top-dashboard-row .user-profile p{
+.top-dashboard-row .profile-p{
 	color: rgba(0,0,0,0.6);
 	font-size: 12px;
+}
+.top-dashboard-row .profile-p strong{
+	font-weight: 900;
+	color: rgba(0,0,0,0.8);
+	font-size: 13px;
+}
+.top-dashboard-row .profile-h4{
+	font-weight: 900;
+
+}
+.btn-upgrade{
+	border-radius: 20px;
+	text-align: center;
 }
