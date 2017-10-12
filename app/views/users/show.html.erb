@@ -2,8 +2,8 @@
 
 <%=render 'pages/leftbar'%>
 <div class="top-dashboard-row">
-<div class="container">
-<div class="user-profile">
+<div class="container" style="padding-top: 10px;">
+<div class="user-profile" style="color: rgba(0,0,0,0.6);">
 <div class="col-md-3">
 <% if @user.picture.nil? %>
  <a href="#"><img src="http://res.cloudinary.com/hea0ivien/image/upload/c_scale,h_600,w_600/v1507814026/user-icon-png-person-user-profile-icon-20_hnulmk.png" class="img-responsive center-block"></a>
@@ -25,7 +25,7 @@
 <hr>
 <p><strong>County: </strong><br> <i class="fa fa-globe"></i> <%= @user.county_id%></p>
 <hr>
-<p><strong>County: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area_id%></p>
+<p><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area_id%></p>
 <hr>
 <p><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.user_code%></p>
 </div>
