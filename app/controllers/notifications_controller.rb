@@ -5,6 +5,6 @@ class NotificationsController < ApplicationController
   redirect_to post_path @notification.post
   end
   def index
-  	 @notifications = current_user.notifications
+  	 @notifications = current_user.notifications.limit(2)
   end
 end

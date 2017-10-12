@@ -3,23 +3,25 @@
 	 <ul class="largenav pull-left">
 	<p class="greet-user">Lostitems Agents Panel </p>
 	</ul>
-	 <ul class="largenav pull-right">
+	 <ul class="nav navbar-nav navbar-right">
 
-	 <%= link_to admin_path do %>
-         <i class="fa fa-bell fa-nav"></i><span class="label label-warning"><%= current_user.notifications.count%></span>
-        <% end %>
-	 
+         <%= render 'notifications/notification_dropdown' %>
+       
+	 <li>
 	<%= link_to admin_path do %>
          <i class="fa fa-cogs fa-nav"></i> <span class="nav-text">
                           
                         </span>
         <% end %>
+        </li>
+        <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
              <i class="fa fa-power-off" fa-nav></i>
                         <span class="nav-text">
                            
                         </span>
         <% end %>
+        </li>
 	</ul>
 	</div>
 </nav>
@@ -39,7 +41,7 @@
 </div>
 <div class="col-md-6">
 <h3 class="greet-user">Your Posts Daily</h3>
-<%= area_chart current_user.lostitems.group_by_day(:created_at, format: "%-l %P").count, xtitle: "Time", ytitle: "No of Posts"%>
+<%= line_chart current_user.lostitems.group_by_week(:created_at).count, xtitle: "Time", ytitle: "No of Posts"%>
 
 </div>
 <div class="col-md-3">

@@ -2,8 +2,9 @@ Rails.application.routes.draw do
  
 
 
-  get 'notifications/link_through'
-
+   get 'notifications/:id/link_through', to: 'notifications#link_through',
+                                        as: :link_through
+get 'notifications', to: 'notifications#index'
   resources :lostitems
   resources :types
   resources :plans

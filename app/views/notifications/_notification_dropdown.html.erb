@@ -2,20 +2,19 @@
 
                 <a href="#" class="icon-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">
                                             <i class="fa fa-bell-o" aria-hidden="true"></i>
-                                            <span class="label label-info"><%= current_user.notifications.where(read: false).count %></span>
+                                            <span class="label label-warning"><%= current_user.notifications.where(read: nil).count %></span>
                                         </a>
-                  <ul class="dropdown-menu" style="min-width: 250px;">
+                  <ul class="dropdown-menu" style="min-width: 300px;">
                   <div class="not-head">
-<p>Notifications</p>
+<h5>Notifications</h5>
 </div>
 
-   <%= render current_user.notifications.where(read: false).order('created_at DESC').last(5)%>
-   <div class="dropdown-divider">
-   	<%= link_to 'View All Notifications', notifications_path %> 
-   </div>
-
-                  </ul>
+   <%= render @notifications.order('created_at DESC').limit(3)%>
+ 
+   	</i><%= link_to 'View All Notifications', notifications_path %> 
+ 
+                 </ul>
 
                
-
-        </li>
+</li>
+        
