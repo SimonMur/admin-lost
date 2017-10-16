@@ -666,3 +666,24 @@ th {
 	border-radius: 20px;
 	text-align: center;
 }
+/***************************/
+/*		SETTINGS		   */
+/***************************/
+.edit-form .edit-field{
+    margin-bottom: 20px;
+	width: 100%;
+	padding: 10px;
+	border: 1px solid rgba(0,0,0,0.2);
+}
+.edit-head h2{
+	text-align:left;
+	font-weight: 900;
+}
+.edit-body{
+	color: rgba(0,0,0,0.6);
+	font-size: 12px;
+}
+.edit-body h3{
+	text-align:left;
+	font-weight: 900;
+}
