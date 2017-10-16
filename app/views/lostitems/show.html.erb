@@ -1,64 +1,69 @@
-<p id="notice"><%= notice %></p>
+<%= render 'pages/header' %>
+<%=render 'pages/leftbar'%>
+<div class="top-dashboard-row" style="padding-top: 20px; padding-bottom: 20px;">
+<div class="container">
 
+<div class="col-md-6">
 <p>
-  <strong>Type:</strong>
-  <%= @lostitem.type %>
+  <strong>Document Type:</strong><br>
+  <%= @lostitem.type.name %>
 </p>
-
+<hr>
 <p>
-  <strong>Name:</strong>
+  <strong>Identified Name:</strong> <br>
   <%= @lostitem.name %>
 </p>
-
+<hr>
 <p>
-  <strong>Id number:</strong>
+  <strong>Id number:</strong> <br>
   <%= @lostitem.id_number %>
 </p>
-
+<hr>
 <p>
-  <strong>Pp number:</strong>
+  <strong>Passport number:</strong><br>
   <%= @lostitem.pp_number %>
 </p>
-
+<hr>
 <p>
-  <strong>Reg number:</strong>
+  <strong>Student registration number:</strong><br>
   <%= @lostitem.reg_number %>
 </p>
-
+<hr>
 <p>
-  <strong>Other number:</strong>
+  <strong>Other Document number:</strong><br>
   <%= @lostitem.other_number %>
 </p>
-
+<hr>
+</div>
+<div class="col-md-6">
 <p>
-  <strong>Date of birth:</strong>
+  <strong>Document Date of birth:</strong><br>
   <%= @lostitem.date_of_birth %>
 </p>
-
+<hr>
 <p>
-  <strong>County:</strong>
-  <%= @lostitem.county %>
+  <strong>Document County:</strong><br>
+  <%= @lostitem.county.name %>
 </p>
-
+<hr>
 <p>
-  <strong>Location:</strong>
+  <strong>Found Location:</strong><br>
   <%= @lostitem.location %>
 </p>
-
+<hr>
 <p>
-  <strong>Date found:</strong>
+  <strong>Date found:</strong><br>
   <%= @lostitem.date_found %>
 </p>
-
+<hr>
 <p>
-  <strong>Description:</strong>
+  <strong>Documnet Description:</strong><br>
   <%= @lostitem.description %>
 </p>
+<hr>
 
-<p>
-  <strong>User:</strong>
-  <%= @lostitem.user %>
-</p>
-
-<%= link_to 'Edit', edit_lostitem_path(@lostitem) %> |
-<%= link_to 'Back', lostitems_path %>
+<%= link_to 'Edit Document', edit_lostitem_path(@lostitem), class: 'btn btn-sm btn-info' %> |
+<%= link_to 'All Documents', lostitems_path, class: 'btn btn-sm btn-default' %>
+</div>
+</div>
+</div>

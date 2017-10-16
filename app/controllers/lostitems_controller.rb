@@ -11,12 +11,13 @@ class LostitemsController < ApplicationController
   # GET /lostitems/1
   # GET /lostitems/1.json
   def show
+     @notifications = current_user.notifications.limit(3)
   end
 
   # GET /lostitems/new
   def new
     @lostitem = Lostitem.new
-    
+     @notifications = current_user.notifications.limit(3)
   end
 
   # GET /lostitems/1/edit

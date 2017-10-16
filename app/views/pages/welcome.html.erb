@@ -30,8 +30,8 @@
 
 <h4>Revenue    <span class="label label-success">Daily(Ksh)</span></h4>
 <hr>
-<p>Your Estimated Daily Revenue</p>
-<%= column_chart current_user.lostitems.group_by_minute(:created_at).count, width: "400px", height: "150px"%>
+<p>Your Estimated monthly Revenue</p>
+<%= column_chart current_user.lostitems.group_by_week(:created_at).count, width: "400px", height: "150px"%>
 <h4>Ksh 4,000</h4><a href="">View price per item</a>
 <p>The figure is calculated from the delivered lostitems</p>
 </div>
