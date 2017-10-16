@@ -5,6 +5,7 @@ class LostitemsController < ApplicationController
   # GET /lostitems.json
   def index
     @lostitems = Lostitem.where(user_id: current_user.id)
+    @notifications = current_user.notifications.limit(3)
   end
 
   # GET /lostitems/1
@@ -15,6 +16,7 @@ class LostitemsController < ApplicationController
   # GET /lostitems/new
   def new
     @lostitem = Lostitem.new
+    
   end
 
   # GET /lostitems/1/edit

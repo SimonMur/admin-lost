@@ -1,4 +1,4 @@
 class County < ApplicationRecord
-	belongs_to :users
-	belongs_to :areas
+	belongs_to :user
+	has_many :areas
 end

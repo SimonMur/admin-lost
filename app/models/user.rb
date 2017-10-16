@@ -1,8 +1,8 @@
 class User < ApplicationRecord
  has_one :plan
  has_many :lostitems
- has_one :county
- has_one :area
+ has_many :counties
+ has_many :areas
  has_many :notifications, dependent: :destroy
  validates :first_name, presence: true
   validates :second_name, presence: true
