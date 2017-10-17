@@ -24,9 +24,9 @@
 <hr>
 <p class="profile-p"><strong>Date of Birth: </strong><br> <i class="fa fa-calendar"></i> <%= @user.dateofbirth%></p>
 <hr>
-<p class="profile-p"><strong>County: </strong><br> <i class="fa fa-globe"></i> <%= @user.county_id%></p>
+<p class="profile-p"><strong>County: </strong><br> <i class="fa fa-globe"></i> <%= @user.county.name%></p>
 <hr>
-<p class="profile-p"><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area_id%></p>
+<p class="profile-p"><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area.name%></p>
 <hr>
 <p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.user_code%></p>
 </div>
