@@ -1,5 +1,5 @@
 class User < ApplicationRecord
- has_one :plan
+ belongs_to :plan
  has_many :lostitems
  belongs_to :county
  belongs_to :area

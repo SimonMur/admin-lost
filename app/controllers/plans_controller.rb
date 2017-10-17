@@ -71,6 +71,6 @@ class PlansController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def plan_params
-      params.require(:plan).permit(:name, :cost, :duration, :support, :admin_panel, :lost_id_alerts, :reported_id_alerts, user_attributes: [ :id, :url, :alt, :caption ])
+      params.require(:plan).permit(:name, :cost, :duration, :support, :posts, :admin_panel, :lost_id_alerts, :reported_id_alerts)
     end
 end

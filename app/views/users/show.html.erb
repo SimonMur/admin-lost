@@ -46,34 +46,35 @@
 </p>
 <hr>
 <h4 class="profile-h4">Your plan has the below Privallages</h4>
+<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">1.</strong>Up to <%= @plan.posts%> Posts monthly</p>
   <% if @plan.support == true %>
-<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">1.</strong>You will receive 24 hours support</p>
+<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>You will receive 24 hours support</p>
 <% else %>
 <p><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">1.</strong>Support Functionality is disabled in this plan</p>
 <%end%>
 
  
   <%if @plan.admin_panel == true %>
-<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>
+<p class="profile-p"> <strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>
 You are issued with a dashboard</p>
 <% else %>
-<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">2.</strong>Support Functionality is disabled in this plan</p>
+<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>Support Functionality is disabled in this plan</p>
 <%end%>
 
 
   <%if @plan.lost_id_alerts == true %>
-  <p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>
+  <p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">4.</strong>
   You will receive information on the lost items that have been reported</p>
 <%else%>
-<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">3.</strong>
+<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">4.</strong>
 Receiving notifications and reports on the  <strong>reported lost items</strong> is not available for this plan. Upgrade to boost your earnings</p>
 <%end%>
 
   <%if @plan.reported_id_alerts == true %>
-  <p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">4.</strong>
+  <p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">5.</strong>
   You will receive information on the found items near you</p>
 <%else%>
-<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">4.</strong>Receiving notifications and reports on the  reports on <strong>found Lost items near you</strong> is not available in this plan. Upgrade to boost your earning</p>
+<p class="profile-p"><strong style="color: white; background: orange; padding: 4px; border-radius: 3px;">5.</strong>Receiving notifications and reports on the  reports on <strong>found Lost items near you</strong> is not available in this plan. Upgrade to boost your earning</p>
 <%end%>
 
 <%= link_to 'Upgrade or Downgrade', choose_plan_path, class: 'btn btn-success btn-upgrade' %>

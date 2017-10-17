@@ -553,7 +553,29 @@ margin-top: 0px;
 text-align:center;
 	border-radius: 20px;
 }
+/* 	DASHBOARD ACTIVITY AREA        */
 
+.account-status-bar {
+border-top: 1px solid rgba(0,0,0,0.2);
+	margin: 0px;
+	background: white;
+	margin-bottom: 10px;
+}
+.account-status-bar h5{
+	font-weight: 100;
+	color: rgba(0,0,0,0.5);
+	text-transform: capitalize;
+	font-size: 20px;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+	text-align: center;
+}
+.active-dot{
+	padding: 10px;
+	border-radius: 20px;
+	background: green;
+}
 /*	DASHBOARD WELCOME REPORTS PAGE */
 
 .top-dashboard-row {

@@ -1,10 +1,37 @@
 <%= render 'pages/header' %>
 <%=render 'pages/leftbar'%>
+<div class="account-status-bar">
+<div class="container">
+<div class="col-md-3" style="border-right: 1px solid rgba(0,0,0,0.1);">
+<h5>Searched and Delivered items
+</h5>
+ <p style="text-align: center; font-weight: 900; font-size: 25px; color: rgba(0,0,0,0.6);"><%= current_user.lostitems.count %> </p>
+</div>
+<div class="col-md-3" style="border-right: 1px solid rgba(0,0,0,0.1);">
+<h5>Your Account status <span class="fa fa-certificate" style="color: gold;"></span></h5>
+<p style="text-align: center; font-size: 25px; "><%if current_user.status == true %>
+ <span class="fa fa-toggle-on" style="color: green;"></span>
+<%else%>
+<span class="fa fa-toggle-off" style="color: red;></span>
+<%end%></p>
+</div>
+<div class="col-md-6">
+<h5>Usage on your <span class="label label-warning"><%= current_user.plan.name %> plan</span></h5>
+<div class="progress bg-success">
+  <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="<%=current_user.lostitems.count %>"
+  aria-valuemin="0" aria-valuemax="<%=current_user.plan.posts.to_f%>" style="width:<%=@bar %>%; ">
+  <%= @bar %>% used
+  
+  </div>
+</div>
+</div>
+</div>
+</div>
 <div class="top-dashboard-row">
 <div class="container">
 <div class="col-md-3">
 <div class="notifications">
-	<h3 class="greet-user">Welcome <%= current_user.first_name %></h3>
+	<h3 class="greet-user">Hello <%= current_user.first_name %></h3>
 	<p style="font-weight: 900; color: rgba(0,0,0,0.8);">You have <%= current_user.notifications.count%> notifications</p>
 	<% @notifications.each do |notification|%>
  <p style="font-weight: 500;"><%= notification.notice_type %></p>
@@ -24,6 +51,7 @@
 </div>
 </div>
 </div>
+
 <div class="middle-dashboard-row">
 <div class="container-fluid">
 <div class="col-md-4 mini-col">
