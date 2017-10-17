@@ -12,16 +12,16 @@
 
 ActiveRecord::Schema.define(version: 20171017090157) do
 
-  create_table "areas", force: :cascade do |t|
+  create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
     t.integer  "county_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["county_id"], name: "index_areas_on_county_id"
+    t.index ["county_id"], name: "index_areas_on_county_id", using: :btree
   end
 
-  create_table "counties", force: :cascade do |t|
+  create_table "counties", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "county_code"
     t.string   "description"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 20171017090157) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "lostitems", force: :cascade do |t|
+  create_table "lostitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "type_id"
     t.string   "name"
     t.string   "id_number"
@@ -44,22 +44,22 @@ ActiveRecord::Schema.define(version: 20171017090157) do
     t.integer  "user_id"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
-    t.index ["county_id"], name: "index_lostitems_on_county_id"
-    t.index ["type_id"], name: "index_lostitems_on_type_id"
-    t.index ["user_id"], name: "index_lostitems_on_user_id"
+    t.index ["county_id"], name: "index_lostitems_on_county_id", using: :btree
+    t.index ["type_id"], name: "index_lostitems_on_type_id", using: :btree
+    t.index ["user_id"], name: "index_lostitems_on_user_id", using: :btree
   end
 
-  create_table "notifications", force: :cascade do |t|
+  create_table "notifications", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.integer  "user_id"
     t.integer  "identifier"
     t.string   "notice_type"
     t.boolean  "read"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.index ["user_id"], name: "index_notifications_on_user_id"
+    t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
-  create_table "plans", force: :cascade do |t|
+  create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "cost"
     t.string   "duration"
@@ -72,14 +72,14 @@ ActiveRecord::Schema.define(version: 20171017090157) do
     t.string   "posts"
   end
 
-  create_table "types", force: :cascade do |t|
+  create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "name"
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
     t.string   "email",                  default: "",   null: false
     t.string   "encrypted_password",     default: "",   null: false
     t.string   "reset_password_token"
@@ -113,14 +113,19 @@ ActiveRecord::Schema.define(version: 20171017090157) do
     t.boolean  "terms"
     t.boolean  "super_user"
     t.string   "user_code"
-    t.integer  "plan_id"
     t.string   "notice_type"
+    t.integer  "plan_id"
     t.boolean  "status",                 default: true
-    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["plan_id"], name: "index_users_on_plan_id"
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
+    t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["plan_id"], name: "index_users_on_plan_id", using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true, using: :btree
   end
 
+  add_foreign_key "areas", "counties"
+  add_foreign_key "lostitems", "counties"
+  add_foreign_key "lostitems", "types"
+  add_foreign_key "lostitems", "users"
+  add_foreign_key "notifications", "users"
 end
