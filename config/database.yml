@@ -28,6 +28,7 @@ test:
   user: simon
   database: lostitem_idd
   password: simon2017
+  
 production:
   <<: *default
  adapter: mysql
