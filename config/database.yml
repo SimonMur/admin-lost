@@ -6,8 +6,8 @@
 #
 default: &default
   adapter: mysql2
-  host: localhost
-  port: 3306
+  host: 104.244.125.129
+  port: 5432
   pool: 5
   user: lostitem_simon
   database: lostitem_idd
@@ -24,5 +24,10 @@ test:
   database: lostitem_idd
 
 production:
-  <<: *default
+   adapter: mysql2
+  host: 104.244.125.129
+  port: 5432
+  pool: 5
+  user: lostitem_simon
   database: lostitem_idd
+  password: simon2017
