@@ -24,7 +24,7 @@ test:
   database: lostitem_idd
 
 production:
-   adapter: mysql2
+  adapter: mysql2
   host: 104.244.125.129
   port: 5432
   pool: 5
