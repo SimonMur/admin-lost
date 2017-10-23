@@ -88,8 +88,8 @@ padding: 5px;
   padding-right:10px;
 }
 .dropdown-menu a{
-	font-weight: 900;
   	text-align:center;
+  	color: rgba(0,0,0,0.6);
 }
 .line{
 	border-top: 1px solid rgba(0,0,0,0.2);
@@ -642,6 +642,10 @@ font-family:Calibri Light;
 }
 .middle-dashboard-row .mini-col span{
 	font-size: 11px;
+}
+.top-dashboard-row .notifications a{
+	color: rgba(0,0,0,0.6);
+	weight: 900;
 }
 /*************tables*************/
 
