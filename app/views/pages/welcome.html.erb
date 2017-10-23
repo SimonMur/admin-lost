@@ -37,7 +37,10 @@
  <p style="font-weight: 500;"><%if notification.read == true %> <%= link_to notification.notice_type, link_through_path(notification)%> <% else%><p style="font-weight: 900;"><%=link_to notification.notice_type,link_through_path(notification) %></p><%end%></p>
  <p style="font-size: 11px;"><i class="fa fa-clock-o fa-nav"></i> <%= notification.created_at.strftime('%b %d, %Y')%></p>
  <hr>
+
   <% end %>
+   <%= link_to 'View All Notifications', notifications_path %> 
+ 
 </div>
 </div>
 <div class="col-md-6">
