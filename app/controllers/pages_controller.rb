@@ -3,7 +3,7 @@ class PagesController < ApplicationController
  before_action :check_plan
  def welcome
  	@lostitems = current_user.lostitems
- 	@notifications = current_user.notifications.limit(3)
+ 	@notifications = current_user.notifications.order('created_at DESC').limit(3)
   @bar = (current_user.lostitems.count.to_f / current_user.plan.posts.to_f) * 100
   end
   private
