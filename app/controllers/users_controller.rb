@@ -40,6 +40,6 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
     def create_notification
     Notification.create(user_id: current_user.id,
                   identifier: current_user.plan_id,
-                        notice_type: 'Welcome, you have successfully selected your plan.')
+                        notice_type: "You have successfully selected #{current_user.plan.name} plan.")
 end
 end
