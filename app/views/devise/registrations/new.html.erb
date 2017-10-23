@@ -49,7 +49,6 @@
     <%= f.label :mobile_number %><br />
     <%= f.text_field :mobilenumber, autofocus: true, placeholder: "Mobile Number", class: 'login-field' %>
   </div>
- 
   <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, placeholder: "Email Address", class: 'login-field' %>
@@ -73,7 +72,7 @@
   </div>
     </div>
   <div class="col-md-4">
-  <div class="field"   >
+  <div class="field" >
     <%= f.label :password %>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>

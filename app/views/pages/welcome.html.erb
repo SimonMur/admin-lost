@@ -12,7 +12,7 @@
 <p style="text-align: center; font-size: 25px; "><%if current_user.status == true %>
  <span class="fa fa-toggle-on" style="color: green;"></span>
 <%else%>
-<span class="fa fa-toggle-off" style="color: red;></span>
+<span class="fa fa-toggle-off" style="color: red;""></span>
 <%end%></p>
 </div>
 <div class="col-md-6">
@@ -47,7 +47,7 @@
 </div>
 <div class="col-md-3">
 	<h3 class="greet-user">Documents Types</h3>
-	<%= pie_chart current_user.lostitems.group(:type_id).count , {donut: true}%>
+	<%= pie_chart current_user.lostitems.group(:type_id).count , {donut: true,colors: ["#3EF5AC","orange", "lightblue", "rgba(0,0,0,0.5)" ]}%>
 </div>
 </div>
 </div>

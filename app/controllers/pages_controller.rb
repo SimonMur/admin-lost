@@ -15,7 +15,7 @@ def check_plan
  end
   def authenticate_user!
     if user_signed_in?
-      super
+     super
     else
       redirect_to new_user_session_path
       ## if you want render 404 page
