@@ -1,18 +1,13 @@
 class PagesController < ApplicationController
  before_action :authenticate_user! 
- before_action :check_plan
+ 
  def welcome
  	@lostitems = current_user.lostitems
  	@notifications = current_user.notifications.order('created_at DESC').limit(3)
-  @bar = (current_user.lostitems.count.to_f / current_user.plan.posts.to_f) * 100
+  @bar = current_user.lostitems.count.to_f  * 70
   end
   private
-def check_plan
-  unless current_user.plan_id
-    redirect_to choose_plan_path
 
-  end
- end
   def authenticate_user!
     if user_signed_in?
      super

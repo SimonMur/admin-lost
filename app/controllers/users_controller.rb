@@ -6,7 +6,7 @@ before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def show
      @notifications = current_user.notifications
-     @plan = Plan.find(current_user.plan_id)
+   
   end
 
   def index

@@ -87,10 +87,10 @@
   <%else%>
   <% if lostitem.type.id== 1 %>
   <div class="col-md-6">
-   
+    
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :full_name %><br><span>(Enter Name as it appers on the document) </span>
     <%= f.text_field :name, class: 'form-field' %>
   </div>
 
@@ -103,15 +103,33 @@
     <%= f.label :date_of_birth %><br>
     <%= f.date_field :date_of_birth, class: 'form-field'  %>
   </div>
+<div class="field">
+    <%= f.label :county_of_birth %><br>
 
-  <div class="field">
-    <%= f.label :county_id %><br>
+    <%= f.collection_select :county_born, County.all, :id, :name, {prompt: "County Born"}, {class: "form-field"} %>
+
+  </div>
+
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Front View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_front%>
+    </span>
+  </div>
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Back View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_back%>
+    </span>
+  </div>
+</div>
+<div class="col-md-6">
+<div class="field">
+    <%= f.label :county_found %><br>
 
     <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
 
   </div>
-</div>
-<div class="col-md-6">
   <div class="field">
     <%= f.label :location %><br>
     <%= f.text_field :location, class: 'form-field'  %>
@@ -124,13 +142,13 @@
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description , class: 'form-field' %>
+    <%= f.text_area :description , class: 'form-field' %>
   </div>
 
  
 </div>
   <div class="actions">
-    <%= f.submit "Submit", class: 'btn btn-sm btn-success' %>
+    <%= f.submit "Submit", class: 'btn btn-bg btn-success' %>
   </div>
   </div>
  
@@ -145,7 +163,7 @@
   </div>
   <div class="field" %>
     <%= f.label :passport_number %><br>
-    <%= f.text_field :pp_number, class: 'form-field'  %>
+    <%= f.text_field :id_number, class: 'form-field'  %>
   </div>
 
   <div class="field">
@@ -153,16 +171,36 @@
     <%= f.date_field :date_of_birth, class: 'form-field'  %>
   </div>
 
+  
   <div class="field">
-    <%= f.label :county_id %><br>
+    <%= f.label :county_of_birth %><br>
+
+    <%= f.collection_select :county_born, County.all, :id, :name, {prompt: "County Born"}, {class: "form-field"} %>
+
+  </div>
+
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Front View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_front%>
+    </span>
+  </div>
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Back View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_back%>
+    </span>
+  </div>
+</div>
+<div class="col-md-6">
+<div class="field">
+    <%= f.label :county_found %><br>
   
     <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
  
   </div>
-</div>
-<div class="col-md-6">
   <div class="field">
-    <%= f.label :location %><br>
+    <%= f.label :location_found %><br>
     <%= f.text_field :location, class: 'form-field'  %>
   </div>
 
@@ -173,7 +211,7 @@
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description , class: 'form-field' %>
+    <%= f.text_area :description , class: 'form-field' %>
   </div>
 
   
@@ -195,23 +233,44 @@
  
   <div class="field">
     <%= f.label :school_registration_number %><br>
-    <%= f.text_field :reg_number, class: 'form-field'  %>
+    <%= f.text_field :id_number, class: 'form-field'  %>
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br>
     <%= f.date_field :date_of_birth, class: 'form-field'  %>
   </div>
 
+ 
   <div class="field">
-    <%= f.label :county_id %><br>
+    <%= f.label :county_of_birth %><br>
+
+    <%= f.collection_select :county_born, County.all, :id, :name, {prompt: "County Born"}, {class: "form-field"} %>
+
+  </div>
+
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Front View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_front%>
+    </span>
+  </div>
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Back View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_back%>
+    </span>
+  </div>
+</div>
+
+<div class="col-md-6">
+ <div class="field">
+    <%= f.label :county_found %><br>
    <div class="field">
     <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
   </div>
   </div>
-</div>
-<div class="col-md-6">
   <div class="field">
-    <%= f.label :location %><br>
+    <%= f.label :location_found %><br>
     <%= f.text_field :location, class: 'form-field'  %>
   </div>
 
@@ -222,13 +281,13 @@
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description , class: 'form-field' %>
+    <%= f.text_area :description , class: 'form-field' %>
   </div>
 
 
 </div>
   <div class="actions">
-    <%= f.submit "Submit", class: 'btn btn-sm btn-success'%>
+    <%= f.submit "Submit", class: 'btn btn-bg btn-success'%>
   </div>
   </div>
   <%end%>
@@ -244,7 +303,7 @@
 
   <div class="field">
     <%= f.label :other_number %><br>
-    <%= f.text_field :other_number, class: 'form-field'  %>
+    <%= f.text_field :id_number, class: 'form-field'  %>
   </div>
 
   <div class="field">
@@ -252,17 +311,29 @@
     <%= f.date_field :date_of_birth, class: 'form-field'  %>
   </div>
 
-  <div class="field">
-    <%= f.label :county_id %><br>
+  
+   <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Front View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_front%>
+    </span>
+  </div>
+    <div class="field-pic">
+   <span class="btn btn-large btn-success btn-file fa fa-picture-o"> Upload Picture(Back View)
+    <i class="fa fa-plus"></i>
+    <%= f.file_field :picture_back%>
+    </span>
+  </div>
+</div>
+<div class="col-md-6">
+<div class="field">
+    <%= f.label :county_found %><br>
    <div class="field">
     <%= f.collection_select :county_id, County.all, :id, :name, {prompt: "County"}, {class: "form-field"} %>
   </div>
   </div>
-</div>
-<div class="col-md-6">
-
   <div class="field">
-    <%= f.label :location %><br>
+    <%= f.label :location_found %><br>
     <%= f.text_field :location, class: 'form-field'  %>
   </div>
 
@@ -273,11 +344,11 @@
 
   <div class="field">
     <%= f.label :description %><br>
-    <%= f.text_field :description , class: 'form-field' %>
+    <%= f.text_area :description , class: 'form-field' %>
   </div>
 </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "submit", class: 'btn btn-bg btn-success' %>
   </div>
   </div>
   <% end %>

@@ -72,6 +72,6 @@ class LostitemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lostitem_params
-      params.require(:lostitem).permit(:type_id, :name, :id_number, :pp_number, :reg_number, :other_number, :date_of_birth, :county_id, :location, :date_found, :description, :user_id)
+      params.require(:lostitem).permit(:type_id, :name, :id_number, :pp_number, :reg_number, :other_number, :date_of_birth, :county_id, :location, :date_found, :description, :user_id, :picture_front, :picture_back, :county_born)
     end
 end
