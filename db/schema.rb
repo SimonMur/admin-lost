@@ -165,11 +165,7 @@ ActiveRecord::Schema.define(version: 20171024142503) do
     t.string "Name",                    null: false
     t.string "Email",                   null: false
     t.string "Phone_Number", limit: 50, null: false
+    t.string "id_number",               null: false
   end
 
-  add_foreign_key "areas", "counties"
-  add_foreign_key "lostitems", "counties"
-  add_foreign_key "lostitems", "types"
-  add_foreign_key "lostitems", "users"
-  add_foreign_key "notifications", "users"
 end

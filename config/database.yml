@@ -8,10 +8,10 @@
 development:
   adapter: mysql2
   encoding: utf8
-  host: 104.244.125.129
+  host: localhost
   port: 3306
   pool: 20
-  username: lostitem_simon
+  username: simon
   database: lostitem_idd
   password: simon2017
 
@@ -21,19 +21,19 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  host: 104.244.125.129
+  host: localhost
   port: 3306
   pool: 20
-  username: lostitem_simon
+  username: simon
   database: lostitem_idd
   password: simon2017
 
 production:
   adapter: mysql2
   encoding: utf8
-  host: 104.244.125.129
+  host: localhost
   port: 3306
   pool: 20
-  user: lostitem_simon
+  user: simon
   database: lostitem_idd
   password: simon2017
