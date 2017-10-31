@@ -18,12 +18,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :secure_validatable, :confirmable, :lockable
-before_create do
-  o = [('1'..'9'), ('A'..'Z')].map(&:to_a).flatten
-    self.user_code ||=  (0...8).map { o[rand(o.length)] }.join
-
-  end
-  attr_accessor :raw_address
+          attr_accessor :raw_address
 geocoded_by :raw_address
 after_validation -> {
   self.address = self.raw_address
@@ -32,4 +27,11 @@ after_validation -> {
 
 after_validation :reverse_geocode, unless: ->(obj) { obj.raw_address.present? },
                  if: ->(obj){ obj.latitude.present? and obj.latitude_changed? and obj.longitude.present? and obj.longitude_changed? }
+                  
+before_create do
+  o = [('1'..'9'), ('A'..'Z')].map(&:to_a).flatten
+    self.user_code ||=  (0...8).map { o[rand(o.length)] }.join
+
+  end
+ 
 end
