@@ -5,6 +5,7 @@ class PagesController < ApplicationController
  	@lostitems = current_user.lostitems
  	@notifications = current_user.notifications.order('created_at DESC').limit(3)
   @bar = current_user.lostitems.count.to_f  * 70
+  @losts = Lostitem.find_by_id_number('term')
   end
   private
 

@@ -32,7 +32,10 @@
 <p class="profile-p"><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area.name%></p>
 <hr>
 <p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.user_code%></p>
+<p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.latitude%></p>
+<p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.longitude%></p>
  <hr>
+ <%= link_to "Edit info", edit_user_registration_path, class: 'btn btn-sm btn-success' %>
 </div>
 </div>
 </div>

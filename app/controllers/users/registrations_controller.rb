@@ -42,7 +42,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
+  #   devise_parameter_sanitizer.permit(:account_update, keys: [:idnumber,:user_code, :first_name,:raw_address, :latitude, :longitude, :second_name, :last_name, :mobilenumber, :dateofbirth, :picture, :county_id, :area_id,:contract, :terms, :super_user, :plan_id, :email, :password, :password_confirmation, :current_password])
   # end
 
   # The path used after sign up.
@@ -57,11 +57,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
    private
 
   def sign_up_params
-    params.require(:user).permit(:idnumber,:user_code, :first_name, :second_name, :last_name, :mobilenumber, :dateofbirth, :picture, :county_id, :area_id, :contract, :terms, :super_user, :plan_id, :email, :password, :password_confirmation)
+    params.require(:user).permit(:idnumber,:user_code, :first_name, :raw_address, :latitude, :longitude,:second_name, :last_name, :mobilenumber, :dateofbirth, :picture, :county_id, :area_id, :contract, :terms, :super_user, :plan_id, :email, :password, :password_confirmation)
   end
 
   def account_update_params
-    params.require(:user).permit(:idnumber,:user_code, :first_name, :second_name, :last_name, :mobilenumber, :dateofbirth, :picture, :county_id, :area_id,:contract, :terms, :super_user, :plan_id, :email, :password, :password_confirmation, :current_password)
+    params.require(:user).permit(:idnumber,:user_code, :first_name,:raw_address, :latitude, :longitude, :second_name, :last_name, :mobilenumber, :dateofbirth, :picture, :county_id, :area_id,:contract, :terms, :super_user, :plan_id, :email, :password, :password_confirmation, :current_password)
   end
   
 
