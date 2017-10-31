@@ -5,7 +5,11 @@ class PagesController < ApplicationController
  	@lostitems = current_user.lostitems
  	@notifications = current_user.notifications.order('created_at DESC').limit(3)
   @bar = current_user.lostitems.count.to_f  * 70
-  @losts = Lostitem.find_by_id_number('term')
+
+  end
+  def update
+    @lostitems = Lostitem.find_by_id_number(params[:id_number])
+    @lostitems.update_attributes(plan_params)  
   end
   private
 
@@ -18,4 +22,8 @@ class PagesController < ApplicationController
       ## render :file => File.join(Rails.root, 'public/404'), :formats => [:html], :status => 404, :layout => false
     end
 end
+
+ def user_params
+      params.require(:user).permit(:status)
+    end
 end

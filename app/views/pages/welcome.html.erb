@@ -5,10 +5,12 @@
 <div class="col-md-3" style="border-right: 1px solid rgba(0,0,0,0.1);">
 <h5>Deliver Searched item
 </h5>
- <p style="text-align: center; font-weight: 900; font-size: 25px; color: rgba(0,0,0,0.6);"><%= form_tag lostitems_path, method: :get do |f| %>
- <%= text_field_tag 'term', params[:id_number], placeholder: "Id Number", class: 'from-control' %> 
-  <%= submit_tag 'Deliver item', class: 'btn btn-sm btn-info' %>
-<%end%>
+<%= form_tag lostitems_path, :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search], placeholder: 'Search Document', class: 'search-form' %>
+    <%= submit_tag "GO", :name => nil , class: 'btn btn-info'%>
+  </p>
+<% end %>
 </div>
 <div class="col-md-3" style="border-right: 1px solid rgba(0,0,0,0.1);"> 
 <h5>Your Account status <span class="fa fa-certificate" style="color: gold;"></span></h5>
@@ -36,19 +38,19 @@
 <h1><%= current_user.histories.count %></h1>
 <hr>
 <p>Delivered Items</p>
-<h1>0</h1>
+<h1><%= current_user.lostitems.where(status: false).count%></h1>
 </div>
 </div>
 <div class="col-md-5">
-<h3 class="greet-user">Your Daily Posts</h3>
-<%= area_chart current_user.lostitems.group('DAY(created_at)').count, xtitle: "Time", ytitle: "No of Posts", colors: ["#1ab394"]%>
-
+<h3 class="greet-user">Your Daily Posts          <span class="label label-warning" style="background:#1ab394; font-size: 13px; text-align: right; ">Last 7 Days</span></h3>
+<%= area_chart current_user.lostitems.group('DAY(created_at)').count, xtitle: "Time", ytitle: "No of Posts", colors: ["#1ab394"], height: '250px;' , download: "boom", legend: "top", library: { hAxis: { format: 'dd/mm/yyyy' } }%>
+<p style="font-size: 12px; color: rgba(0,0,0,0.6); text-align: center">This graph shows your items posted daily report for posted items last 7 Days</p>
 </div>
 <div class="col-md-5">
-<h3 class="greet-user">Your Daily Searches</h3>
+<h3 class="greet-user">Your Daily Searches         <span class="label label-warning" style="background:#1ab394; font-size: 13px;">Last 7 Days</span></h3>
 
-<%= line_chart current_user.histories.group('DAY(created_at)').count, xtitle: "Day", ytitle: "Searches", colors: ["#1ab394"], curve: false%>
-	
+<%= line_chart current_user.histories.group('DAY(created_at)').count, xtitle: "Day", ytitle: "Searches", colors: ["#1ab394"], curve: false, height: '250px;', legend: "top", library: { hAxis: { format: "%a" } }%>
+<p style="font-size: 12px; color: rgba(0,0,0,0.6); text-align: center">This graph shows your daly searced item reports for the past 7 days</p>	
 </div>
 </div>
 </div>
@@ -57,16 +59,23 @@
 <div class="container-fluid">
 <div class="col-md-4 mini-col">
 
-<h4>Revenue    <span class="label label-success">Daily(Ksh)</span></h4>
+<h4>Revenue    <span class="label label-warning" style="background:#1ab394; font-size: 13px;">Daily(Ksh)</h4>
 <hr>
 <p>Your Estimated monthly Revenue</p>
 <%= column_chart current_user.lostitems.group('WEEK(created_at)').count, width: "400px", height: "150px", colors: ["#1ab394"], stacked: true%>
-<h4> Ksh. <%= current_user.lostitems.count * 200 %></h4><a href="">View price per item</a>
+<div class="col-md-6">
+<h4>Est. Revenue: Ksh. <%= current_user.lostitems.count * 70 %></h4>
+</div>
+<div class="col-md-6">
+<h4>Revenue Payable: Ksh. <%= current_user.lostitems.where(status: false).count * 70 %></h4>
+</div><a href="">View price per item</a>
 <p>The figure is calculated from the delivered lostitems</p>
 </div>
 <div class="col-md-3 mini-col">
 <h3 class="greet-user">Documents Types</h3>
-	<%= pie_chart current_user.lostitems.group(:type_id).count , {donut: true,colors: ["#1ab394","orange", "lightblue", "rgba(0,0,0,0.5)" ]}%><hr>
+	<%= pie_chart current_user.lostitems.joins(:type).group('types.name').count , {donut: true, radius:  "90%", height: '250px;',legend: "bottom", colors: ["#1ab394","orange", "lightblue", "rgba(0,0,0,0.5)" ]}%>
+	<p style="font-size: 12px; color: rgba(0,0,0,0.6); text-align: center">Anlaysis of the type on documents recorded</p>	
+
 </div>
 <div class="col-md-4 mini-col">
 <h4>Your Operating Location as captured</h4>

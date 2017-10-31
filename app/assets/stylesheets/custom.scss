@@ -521,6 +521,11 @@ height: 100%;
 /**************************************/
 /******DASHBOARD***********************/
 /**************************************/
+.search-form{
+	border: 1px solid rgba(0,0,0,0.1);
+	border-radius: 0px;
+	padding:6px;
+}
 .dashboard-body{
 
 	margin-left: 5px;	
@@ -632,7 +637,7 @@ border-top: 1px solid rgba(0,0,0,0.2);
 font-family:Calibri Light;
 	text-align: right;
 	font-weight: 100;
-	font-size: 20px;
+	font-size: 15px;
 }
 .middle-dashboard-row .mini-col p{
 	font-size: 12px;

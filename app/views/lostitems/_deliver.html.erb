@@ -1,0 +1,4 @@
+<%= form_for(lostitem) do |f| %>
+  <div><%= hidden_field_tag :status, true %></div>
+  <%= f.submit "deliver", class: "btn btn-sm btn-warning" %>
+<% end %>
