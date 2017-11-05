@@ -1,10 +1,11 @@
 class User < ApplicationRecord
-  
+  before_create :build_default_account 
  belongs_to :plan
  has_many :lostitems
  belongs_to :county
  belongs_to :area
  has_many :histories
+ has_one :account
  has_many :notifications, dependent: :destroy
  validates :first_name, presence: true
   validates :second_name, presence: true
@@ -33,5 +34,11 @@ before_create do
     self.user_code ||=  (0...8).map { o[rand(o.length)] }.join
 
   end
- 
+
+
+
+def build_default_account  
+  build_account
+  true
+end  
 end

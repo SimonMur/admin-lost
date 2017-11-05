@@ -4,7 +4,7 @@ class LostitemsController < ApplicationController
   # GET /lostitems
   # GET /lostitems.json
   def index
-    @lostitems = Lostitem.where(user_id: current_user.id)
+    @lostitems = current_user.lostitems
     @notifications = current_user.notifications.limit(3)
      @lostitems = Lostitem.search(params[:search])
   end

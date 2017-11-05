@@ -2,6 +2,8 @@ Rails.application.routes.draw do
  
 
 
+  resources :transactions
+  resources :accounts
  get 'notifications/:id/link_through', to: 'notifications#link_through',
                                         as: :link_through
 get 'notifications', to: 'notifications#index'
