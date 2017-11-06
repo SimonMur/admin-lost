@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101091409) do
+ActiveRecord::Schema.define(version: 20171102141536) do
+
+  create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "user_id"
+    t.decimal  "balance",    precision: 10, default: 0
+    t.boolean  "meta"
+    t.string   "meta_name"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
+  end
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
@@ -46,11 +56,12 @@ ActiveRecord::Schema.define(version: 20171101091409) do
   end
 
   create_table "lostid_details", primary_key: "Id", id: :integer, force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string "firstname",    null: false
-    t.string "Phone_Number", null: false
-    t.string "Email",        null: false
-    t.string "Place_Lost",   null: false
-    t.date   "datelost",     null: false
+    t.string   "firstname",                                         null: false
+    t.string   "Phone_Number",                                      null: false
+    t.string   "Email",                                             null: false
+    t.string   "Place_Lost",                                        null: false
+    t.date     "datelost",                                          null: false
+    t.datetime "created_at",   default: -> { "CURRENT_TIMESTAMP" }
   end
 
   create_table "lostitems", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -82,8 +93,8 @@ ActiveRecord::Schema.define(version: 20171101091409) do
     t.integer  "identifier"
     t.string   "notice_type"
     t.boolean  "read"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",  default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at",  default: -> { "CURRENT_TIMESTAMP" }, null: false
     t.index ["user_id"], name: "index_notifications_on_user_id", using: :btree
   end
 
@@ -109,6 +120,16 @@ ActiveRecord::Schema.define(version: 20171101091409) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "posts"
+  end
+
+  create_table "transactions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.integer  "from_id"
+    t.integer  "to_id"
+    t.boolean  "deposit"
+    t.boolean  "withdrawal"
+    t.decimal  "amount",     precision: 10
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -169,7 +190,9 @@ ActiveRecord::Schema.define(version: 20171101091409) do
     t.string  "Email",                   null: false
     t.string  "Phone_Number", limit: 50, null: false
     t.string  "id_number",               null: false
+    t.string  "Doc_name",                null: false
     t.integer "user_id"
   end
 
+  add_foreign_key "accounts", "users"
 end

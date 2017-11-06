@@ -63,7 +63,7 @@
     <%= f.label :area_id %><br />
     <%= f.collection_select :area_id, Area.all, :id, :name,  {prompt: "Select  Area"}, { class: 'edit-field'}%>
   </div>
-  <%= f.hidden_field :raw_address%>
+  <%= f.hidden_field :raw_address, :value => request.ip%>
    <%= f.hidden_field :latitude, class: "form-control" %>
     <%= f.hidden_field :longitude, class: "form-control" %>
   <div class="field">
