@@ -1,0 +1,2 @@
+class Agentr < ApplicationRecord
+end
