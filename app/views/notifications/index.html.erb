@@ -6,7 +6,7 @@
 <hr>
     <% @notifications.each do |notification|%>
  <p style="font-weight: 500; font-size: 12px; color: rgba(0,0,0,0.6);"><%= notification.notice_type %></p>
- <p style="font-size: 11px; color: rgba(0,0,0,0.6);"><i class="fa fa-clock-o fa-nav"></i> <%= notification.created_at.strftime('%b %d, %Y')%></p>
+ <p style="font-size: 11px; color: rgba(0,0,0,0.6);"><i class="fa fa-clock-o fa-nav"></i> <%= notification.created_at%></p>
  <hr>
   <% end %>
 </div>
