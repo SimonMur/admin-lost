@@ -5,6 +5,7 @@ class User < ApplicationRecord
  belongs_to :county
  belongs_to :area
  has_many :histories
+  has_many :usersfoundid_contacts
  has_one :account
  has_many :notifications, dependent: :destroy
  validates :first_name, presence: true

@@ -2,6 +2,13 @@ Rails.application.routes.draw do
  
 
 
+  resources :payments
+  get 'searches/search'
+
+  get 'searches/found'
+
+  get 'searches/lost'
+
   resources :transactions
   resources :accounts
  get 'notifications/:id/link_through', to: 'notifications#link_through',
@@ -30,5 +37,10 @@ end
 get "/admin", to: "pages#welcome"
 get "/choose_plan", to: "users#edit"
 get "/profile", to: "users#show"
+get "/searches", to: "searches#search"
+get "/found", to: "searches#found"
+get "/lost", to: "searches#lost"
+
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

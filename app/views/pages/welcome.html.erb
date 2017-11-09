@@ -1,3 +1,8 @@
+<style type="text/css">
+	.withdraw a{
+		color: white;
+	}
+</style>
 <%= render 'pages/header' %>
 <%=render 'pages/leftbar'%>
 <div class="account-status-bar">
@@ -20,7 +25,20 @@
 <span class="fa fa-toggle-off" style="color: red;""></span>
 <%end%></p>
 </div>
+<div class="col-md-3" style="text-align: center;">
+<h5>Your Account Balance <span class="fa fa-money" style="color: green;"></span></h5>
 <div class="col-md-6">
+<p style="color: rgba(0,0,0,0.6); font-weight: 100;">  A/C Balance: Ksh <%= current_user.account.balance%></p>
+</div>
+<div class="col-md-6">
+<p style="color: rgba(0,0,0,0.6); font-weight: 100;"> Available Bal:  Ksh <%= current_user.lostitems.where(status: false).count * 70 %>
+</p>
+</div>
+  </div>
+  <div class="col-md-3 withdraw" style="text-align: center;">
+<h5>Account Options <span class="fa fa-opencart" style="color: orange;"></span></h5>
+<li class='btn btn-sm btn-warning'><%= link_to "Refresh" %></li>
+<li class='btn btn-sm btn-success'><%= link_to "Withdraw Cash" %></li>
 
   </div>
 </div>
@@ -32,13 +50,15 @@
 <div class="col-md-2" style="background:#1ab394; min-height: 100%; padding: 10px; color: white; margin-bottom: 0px; text-align: center; font-weight: 900;">
 <div class="short-sum">
 <p>Posted Items</p>
-<h1><%= current_user.lostitems.count %></h1>
+<h2><%= current_user.lostitems.count %></h2>
+<%= link_to "View all", lostitems_path %>
 <hr>
 <p>Total Searches</p>
-<h1><%= current_user.histories.count %></h1>
+<h2><%= current_user.histories.count %></h2>
+<%= link_to "View all", searches_path %>
 <hr>
 <p>Delivered Items</p>
-<h1><%= current_user.lostitems.where(status: false).count%></h1>
+<h2><%= current_user.lostitems.where(status: false).count%></h2>
 </div>
 </div>
 <div class="col-md-5">
@@ -79,8 +99,8 @@
 </div>
 <div class="col-md-4 mini-col">
 <h4>Your Operating Location as captured</h4>
-<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{current_user.latitude},#{current_user.longitude}&markers=#{current_user.latitude},#{current_user.longitude}&zoom=15&size=400x300&key= AIzaSyABrDa4leIaXDXUGyBz6ApK9hhKmuVrOF8",
-              class: 'img-fluid img-rounded'%>
+<%= image_tag "http://maps.googleapis.com/maps/api/staticmap?center=#{current_user.latitude},#{current_user.longitude}&markers=#{current_user.latitude},#{current_user.longitude}&zoom=15&size=1200x480&key= AIzaSyABrDa4leIaXDXUGyBz6ApK9hhKmuVrOF8",
+              class: 'img-fluid img-rounded img-responsive'%>
 </div>
 </div>
 </div>

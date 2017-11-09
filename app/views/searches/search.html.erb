@@ -1,0 +1,43 @@
+<%= render 'pages/header' %>
+<%=render 'pages/leftbar'%>
+<div class="dashboard-body">
+<div class="container">
+
+<h1>Your Searched Items</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Searcher Name</th>
+      <th>Doc Name</th>
+     
+      <th>Identifier number</th>
+       <th>Email</th>
+       <th>Mobile</th> 
+      <th>Verification</th>
+
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @usersfoundid_contacts.each do |usersfoundid_contact| %>
+      <tr>
+        <td><%= usersfoundid_contact.Name %></td>
+         <td><%= usersfoundid_contact.Doc_name %></td>
+       
+        <td><%= usersfoundid_contact.id_number %></td>
+         <td><%= usersfoundid_contact.Email %></td>
+        <td><%= usersfoundid_contact.Phone_Number %></td>
+        <td><% if usersfoundid_contact.Name == usersfoundid_contact.Doc_name%><p style=" padding: 7px; color: green; font-weight: 900;"><span class="fa fa-check"></span> Passed </p><%else%><p style=" padding: 7px; color: red; font-weight: 900;"><span class="fa fa-times"></span>Failed<%end%></td>
+      
+ 
+  </div></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

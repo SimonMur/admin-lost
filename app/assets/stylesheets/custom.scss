@@ -578,7 +578,10 @@ text-align:center;
 	border-radius: 20px;
 }
 /* 	DASHBOARD ACTIVITY AREA        */
-
+.short-sum a{
+	font-size: 11px;
+	font-weight: 100px;
+}
 .account-status-bar {
 border-top: 1px solid rgba(0,0,0,0.2);
 	margin: 0px;
@@ -671,7 +674,9 @@ font-family:Calibri Light;
 	color: rgba(0,0,0,0.6);
 	weight: 900;
 }
+/*********************************/
 /*************tables*************/
+/*********************************/
 
 table {
     border-collapse: collapse;
@@ -739,4 +744,14 @@ th {
 }
 .edit-form .btn {
 	border-radius: 20px;
+}
+/******************************/
+/****BUTTONS*******************/
+/******************************/
+.btn-withdraw a{
+display: inline-block;
+	background: #1ab394;
+	width: auto;
+	padding: 8px;
+	color: black;
 }

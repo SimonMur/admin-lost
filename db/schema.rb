@@ -10,15 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107120120) do
+ActiveRecord::Schema.define(version: 20171109133935) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
-    t.decimal  "balance",    precision: 10, default: 0
+    t.integer  "balance",                   default: 0
     t.boolean  "meta"
     t.string   "meta_name"
     t.datetime "created_at",                            null: false
     t.datetime "updated_at",                            null: false
+    t.decimal  "available",  precision: 10
     t.index ["user_id"], name: "index_accounts_on_user_id", using: :btree
   end
 
@@ -28,8 +29,8 @@ ActiveRecord::Schema.define(version: 20171107120120) do
     t.string   "mobile"
     t.string   "location"
     t.string   "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",  default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at",  default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "areas", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
@@ -119,6 +120,19 @@ ActiveRecord::Schema.define(version: 20171107120120) do
     t.string  "email",                     null: false
   end
 
+  create_table "payments", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.string   "mobile"
+    t.decimal  "amount",         precision: 10
+    t.decimal  "agent_credit",   precision: 10
+    t.string   "id_number"
+    t.string   "user_id"
+    t.string   "transaction_id"
+    t.string   "status"
+    t.datetime "created_at",                    default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at",                    default: -> { "CURRENT_TIMESTAMP" }, null: false
+  end
+
   create_table "plans", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.string   "name"
     t.string   "cost"
@@ -138,8 +152,8 @@ ActiveRecord::Schema.define(version: 20171107120120) do
     t.boolean  "deposit"
     t.boolean  "withdrawal"
     t.decimal  "amount",     precision: 10
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.datetime "created_at",                default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at",                default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   create_table "types", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
