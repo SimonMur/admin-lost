@@ -10,6 +10,8 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+      @notifications = current_user.notifications.order('created_at DESC').limit(3)
+     @transactions = Transaction.where('to_id', current_user.id).order('created_at DESC').limit(5)
   end
 
   # GET /accounts/new
