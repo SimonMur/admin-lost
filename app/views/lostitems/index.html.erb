@@ -1,7 +1,7 @@
 <%= render 'pages/header' %>
 <%=render 'pages/leftbar'%>
 <div class="dashboard-body">
-<div class="container">
+<div class="container" style="overflow-x:auto">
 <%= link_to 'Record a new lost item', new_lostitem_path, class: 'btn btn-sm btn-primary' %>
 
 <h1>Lostitems</h1>
@@ -35,7 +35,7 @@
   <%= f.submit "Deliver item", class: "btn btn-sm btn-warning" %>
 <% end %>
   <% else %>
-  <div style="text-align: center;">
+  <div style="text-align: center; ">
   <span class="fa fa-check" style="text-align: center; font-size: 20px; color: darkgreen;"></span>
   </div>
   <% end %>
