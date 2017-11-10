@@ -51,15 +51,15 @@
   text-rendering: optimizeLegibility;
   font-family:Calibri Light;">
 <div class="short-sum">
-<p>Posted Items</p>
+<p><strong>Posted Items</strong></p>
 <h2><%= current_user.lostitems.count %></h2>
 <%= link_to "View all >>", lostitems_path %>
 <hr>
-<p>Total Searches</p>
+<p><strong>Total Searches</strong></p>
 <h2><%= current_user.histories.count %></h2>
 <%= link_to "View all >>", searches_path %>
 <hr>
-<p>Delivered Items</p>
+<p><strong>Delivered Items</strong></p>
 <h2><%= current_user.lostitems.where(status: false).count%></h2>
 </div>
 </div>
