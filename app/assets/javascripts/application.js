@@ -19,3 +19,6 @@
 //= require highcharts/highcharts-more
 //= require chartkick
 //= require_tree .
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
