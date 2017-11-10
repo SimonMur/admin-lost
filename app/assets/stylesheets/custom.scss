@@ -736,6 +736,15 @@ border-top: 1px solid rgba(0,0,0,0.2);
 	font-family:Calibri Light;
 	text-align: center;
 }
+
+@media screen and (max-width: 600px) {
+
+.account-status-bar .col-md-3{
+	border-bottom: 1px solid rgba(0,0,0,0.05);
+	margin-left: 0px solid rgba(0,0,0,0.05);
+	padding-bottom: 5px;
+}
+}
 .active-dot{
 	padding: 10px;
 	border-radius: 20px;
