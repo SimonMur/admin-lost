@@ -1,0 +1,2 @@
+class FoundidDetail < ApplicationRecord
+end

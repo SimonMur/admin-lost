@@ -5,10 +5,12 @@ class SearchesController < ApplicationController
   end
 
   def found
+    @foundid_details = FoundidDetail.all
   		@notifications = current_user.notifications.order('created_at DESC').limit(3)
   end
 
   def lost
+    @lostid_details = LostidDetail.all
   		@notifications = current_user.notifications.order('created_at DESC').limit(3)
   end
 end

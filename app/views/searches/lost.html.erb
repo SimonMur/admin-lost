@@ -1,2 +1,60 @@
-<h1>Searches#lost</h1>
-<p>Find me in app/views/searches/lost.html.erb</p>
+<%= render 'pages/header' %>
+<%=render 'pages/leftbar'%>
+
+<div class="container account-section">
+<h2>Search Summary</h2>
+<div class="col-md-4">
+<p><strong>Posted Items</strong></p>
+<h2><%= current_user.lostitems.count %></h2>
+<%= link_to "View all", lostitems_path %>
+</div>
+<div class="col-md-4">
+<p><strong>Total Searches</strong></p>
+<h2><%= current_user.histories.count %></h2>
+<%= link_to "View all", searches_path %>
+</div>
+<div class="col-md-4">
+<p><strong>Delivered Items</strong></p>
+<h2><%= current_user.lostitems.where(status: false).count%></h2>
+</div>
+</div>
+<div class="container transactions-section" style="background: white; margin-top: 10px; font-size: 14px;">
+
+<h1>Your Searched Items</h1>
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Document Name</th>
+      <th>Contact</th>
+      <th>Identifier number</th>
+       <th>Email</th>
+       <th>Mobile</th> 
+      <th>Verification</th>
+
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lostid_details.each do |lostid_detail| %>
+      <tr>
+        <td><%= lostid_detail.firstname %></td>
+         <td><%= lostid_detail.Phone_Number %></td>
+    
+      <td><%= lostid_detail.Phone_Number %></td>
+      <td><%= lostid_detail.Email%></td>
+      <td><%= lostid_detail.Place_Lost %></td>
+      <td><%= lostid_detail.datelost %></td>
+      <td><%= lostid_detail.created_at %></td>
+      
+ 
+  </div></td>
+        
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

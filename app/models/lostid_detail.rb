@@ -1,0 +1,2 @@
+class LostidDetail < ApplicationRecord
+end
