@@ -755,10 +755,41 @@ display: inline-block;
 	padding: 8px;
 	color: black;
 }
-.container .account-section{
+/******************************/
+/* ACCOUNT AND TRANSACTIONS   */
+/******************************/
+.account-section{
 		background: #1ab394;
 color: white;
 -webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+		text-transform: capitalize;
+}
+.account-section h2{
+	color: white;
+-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+		text-transform: capitalize;
+}
+.account-section p{
+	color: white;
+-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+		text-transform: capitalize;
+}
+.account-section a{
+	color: white;
+-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	font-family:Calibri Light;
+		text-transform: capitalize;
+}
+.transactions-section{
+color: rgba(0,0,0,0.7);
+	-webkit-font-smoothing: antialiased;
 	text-rendering: optimizeLegibility;
 	font-family:Calibri Light;
 		text-transform: capitalize;
