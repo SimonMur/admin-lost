@@ -764,6 +764,15 @@ border-top: 1px solid rgba(0,0,0,0.2);
 	background: white;
 	margin-bottom: 10px;
 }
+@media screen and (max-width: 600px) {
+.top-dashboard-row {
+border-top: 1px solid rgba(0,0,0,0.2);
+	margin: 0px;
+	background: white;
+	margin-bottom: 0px;
+}
+
+}
 .top-dashboard-row .greet-user{
 	font-weight: 100;
 	color: rgba(0,0,0,0.5);
@@ -790,8 +799,15 @@ border-top: 1px solid rgba(0,0,0,0.2);
 	font-size: 13px;
 
 }
+
 .middle-dashboard-row {
 	margin-left:5%;
+
+}
+@media screen and (max-width: 600px) {
+.middle-dashboard-row {
+	margin-left:0%;
+	background: white;}
 
 }
 .middle-dashboard-row .mini-col{
