@@ -47,15 +47,17 @@
 </div>
 <div class="top-dashboard-row">
 <div class="container">
-<div class="col-md-2" style="background:#1ab394; min-height: 100%; padding: 10px; color: white; margin-bottom: 0px; text-align: center; font-weight: 900;">
+<div class="col-md-2" style="background:#1ab394; min-height: 100%; padding: 10px; color: white; margin-bottom: 0px; text-align: center; font-weight: 100;-webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  font-family:Calibri Light;">
 <div class="short-sum">
 <p>Posted Items</p>
 <h2><%= current_user.lostitems.count %></h2>
-<%= link_to "View all", lostitems_path %>
+<%= link_to "View all >>", lostitems_path %>
 <hr>
 <p>Total Searches</p>
 <h2><%= current_user.histories.count %></h2>
-<%= link_to "View all", searches_path %>
+<%= link_to "View all >>", searches_path %>
 <hr>
 <p>Delivered Items</p>
 <h2><%= current_user.lostitems.where(status: false).count%></h2>
