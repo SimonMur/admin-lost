@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require datepicker
 //= require bootstrap-sprockets
 //= require bootstrap
 //= require highcharts

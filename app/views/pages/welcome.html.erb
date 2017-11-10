@@ -63,13 +63,13 @@
 </div>
 <div class="col-md-5">
 <h3 class="greet-user">Your Daily Posts          <span class="label label-warning" style="background:#1ab394; font-size: 13px; text-align: right; ">Last 7 Days</span></h3>
-<%= area_chart current_user.lostitems.group('DAY(created_at)').count, xtitle: "Time", ytitle: "No of Posts", colors: ["#1ab394"], height: '250px;' , download: "boom", legend: "top", library: { hAxis: { format: 'dd/mm/yyyy' } }%>
+<%= area_chart current_user.lostitems.group_by_day(:created_at, range: 7.days.ago.midnight..Time.now).count, xtitle: "Time", ytitle: "No of Posts", colors: ["#1ab394"], height: '250px;' , download: "boom", legend: "top", library: { hAxis: { format: 'dd/mm/yyyy' } }%>
 <p style="font-size: 12px; color: rgba(0,0,0,0.6); text-align: center">This graph shows your items posted daily report for posted items last 7 Days</p>
 </div>
 <div class="col-md-5">
 <h3 class="greet-user">Your Daily Searches         <span class="label label-warning" style="background:#1ab394; font-size: 13px;">Last 7 Days</span></h3>
 
-<%= line_chart current_user.histories.group('DAY(created_at)').count, xtitle: "Day", ytitle: "Searches", colors: ["#1ab394"], curve: false, height: '250px;', legend: "top", library: { hAxis: { format: "%a" } }%>
+<%= line_chart current_user.histories.group('DAYOFWEEK(created_at)').count, xtitle: "Day", ytitle: "Searches", colors: ["#1ab394"], curve: false, height: '250px;', legend: "top", library: { hAxis: { format: "%a" } }%>
 <p style="font-size: 12px; color: rgba(0,0,0,0.6); text-align: center">This graph shows your daly searced item reports for the past 7 days</p>	
 </div>
 </div>
