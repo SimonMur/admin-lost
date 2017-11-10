@@ -327,6 +327,12 @@ font-weight: bold;
   background: -moz-linear-gradient(right,red, green, black); /* For Firefox 3.6 to 15 */
   background: linear-gradient(to right,red, green, black); /* Standard syntax */
 }
+@media screen and (max-width: 600px) {
+	.reg-header h2{
+	font-size: 20px;
+	font-weight: 200;	
+}
+}
 /****************************/
 /* PASSWORD RESET FORM ******/
 /****************************/
