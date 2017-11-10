@@ -50,7 +50,9 @@ body{
 	font-size: 16px;
 	color: rgba(0,0,0,0.3);
 }
-
+.top-navbar button{
+	display: none;
+}
  .dropdown{
 border-radius: 5px;
   background-color: rgba(0, 0, 0, 0); 
@@ -101,6 +103,7 @@ padding: 5px;
 }
 @media screen and (max-width: 600px) {
 	.top-navbar{
+	text-align:right;
 	padding-top: 10px;
 	border-bottom: 1px solid(0,0,0,0.1);
 	background:rgba(0,0,0,0.005)
@@ -110,8 +113,17 @@ padding: 5px;
 	color: rgba(0,0,0,0.3);
 }
 .top-navbar li{
-float: right;
-	
+float: left;
+text-align: right;
+}
+.top-navbar button{
+	display: block;
+	color: green;
+	background: #1ab394;
+}
+.top-navbar .icon-bar{
+	background: white;
+	padding: 2px;
 }
 .top-navbar p{
 display: none;
