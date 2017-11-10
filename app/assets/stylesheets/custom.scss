@@ -165,15 +165,65 @@ color:white;
 }
 
 @media screen and (max-width: 600px) {
-   .login-page{
+.login-page{
 	height: 100%;
-	margin-top: 50px;
+	margin-top: 0px;
 	background: white;
-	width:90%;
-	margin-left: 5%;
-	border-radius: 5px;
+	width:100%;
+	margin-left: 0%;
+	border-radius: 0px;
 	box-shadow: -10px 10px 5px #888888;
-	border: 2px solid rgba(0,0,0,0.2);
+	border: 0px solid rgba(0,0,0,0.2);
+}
+.login-header{
+	text-align: center;
+	padding: 10px;
+	border-bottom: 1px solid rgba(0,0,0,0.3);
+	background: -webkit-linear-gradient(left,black, green, red); /* For Safari 5.1 to 6.0 */
+  	background: -o-linear-gradient(right, black, green, red); /* For Opera 11.1 to 12.0 */
+  	background: -moz-linear-gradient(right,black, green, red); /* For Firefox 3.6 to 15 */
+  	background: linear-gradient(to right,black, green, red); /* Standard syntax */
+}
+.login-header h3{
+color:white;
+	text-transform: uppercase;
+	font-weight: 100;
+}
+.login-body{
+	margin-top: 0px;
+	padding: 10px;
+}
+
+.login-body .field{
+	margin-top: 10px;
+}
+.login-body .login-field{
+    margin-bottom: 20px;
+	width: 100%;
+	padding: 10px;
+	border: 2px solid rgba(0,0,0,0.3);
+}
+.login-footer{
+	padding: 10px;
+	margin-bottom: 20px;
+}
+.login-button{
+    margin-left:25%;
+	color: white;
+	padding: 10px;
+	width: 50%;
+	background: #E3690F;
+	border: 1px solid #E3690F;
+}
+.login-links{
+	border-top: 1px solid rgba(0,0,0,0.3);
+	padding: 10px;
+	color: rgba(0,0,0,0.6);
+	font-size: 13px;
+	
+}
+.login-links p{
+	padding: 0px;
 }
 }
 /*****************************/
