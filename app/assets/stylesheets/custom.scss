@@ -547,7 +547,9 @@ font-size:20px;
 width:250px;
 overflow:visible;
 }
-
+.x-button{
+	display: none;
+}
 .main-menu {
 background:#fbfbfb;
 border-right:1px solid #e5e5e5;
@@ -582,6 +584,10 @@ transition:width .05s linear;
 -webkit-transform:translateZ(0) scale(1,1);
 z-index:1000;
 }	
+.x-button{
+display: block;
+	font-weight: 900; font-size:30px;  color: #1ab394; text-align: right;
+}
 }
 .main-menu>ul {
 margin:7px 0;
