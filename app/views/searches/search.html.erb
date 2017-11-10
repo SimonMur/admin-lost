@@ -1,7 +1,24 @@
 <%= render 'pages/header' %>
 <%=render 'pages/leftbar'%>
-<div class="dashboard-body">
-<div class="container">
+
+<div class="container account-section">
+<h2>Search Summary</h2>
+<div class="col-md-4">
+<p><strong>Posted Items</strong></p>
+<h2><%= current_user.lostitems.count %></h2>
+<%= link_to "View all", lostitems_path %>
+</div>
+<div class="col-md-4">
+<p><strong>Total Searches</strong></p>
+<h2><%= current_user.histories.count %></h2>
+<%= link_to "View all", searches_path %>
+</div>
+<div class="col-md-4">
+<p><strong>Delivered Items</strong></p>
+<h2><%= current_user.lostitems.where(status: false).count%></h2>
+</div>
+</div>
+<div class="container transactions-section" style="background: white; margin-top: 10px;">
 
 <h1>Your Searched Items</h1>
 
