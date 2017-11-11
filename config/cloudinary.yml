@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: hea0ivien
+  api_key: '724331763652495'
+  api_secret: W7ye3FlpXaMs1-UO4SC1s0jPsUg
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: hea0ivien
+  api_key: '724331763652495'
+  api_secret: W7ye3FlpXaMs1-UO4SC1s0jPsUg
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: hea0ivien
+  api_key: '724331763652495'
+  api_secret: W7ye3FlpXaMs1-UO4SC1s0jPsUg
+  enhance_image_tag: true
+  static_image_support: false

@@ -16,6 +16,7 @@ class User < ApplicationRecord
   validates :area_id, presence: true
   validates :terms, presence: true
   validates :mobilenumber, presence: true, length: {minimum: 10, maximum: 10} 
+  mount_uploader :picture, PictureUploader
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

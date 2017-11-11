@@ -8,7 +8,7 @@
 <% if @user.picture.nil? %>
  <a href="#"><img src="http://res.cloudinary.com/hea0ivien/image/upload/c_scale,h_600,w_600/v1507814026/user-icon-png-person-user-profile-icon-20_hnulmk.png" class="img-responsive center-block"></a>
 <%else %>
-<p><%= @user.picture %></p>
+<%= cl_image_tag @user.picture_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 50}] %>
 <%end%>
 
 </div>
@@ -32,8 +32,7 @@
 <p class="profile-p"><strong>Operating Area: </strong><br> <i class="fa fa-map-marker"></i> <%= @user.area.name%></p>
 <hr>
 <p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.user_code%></p>
-<p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.latitude%></p>
-<p class="profile-p"><strong>Your User Code/ID: </strong><br> <i class="fa fa-eye"></i> <%= @user.longitude%></p>
+
  <hr>
  <%= link_to "Edit info", edit_user_registration_path, class: 'btn btn-sm btn-success' %>
 </div>
