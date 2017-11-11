@@ -24,11 +24,9 @@ class Users::SessionsController < Devise::SessionsController
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
   def after_sign_in_path_for(resource)
-      if current_user.plan_id.nil?
-      choose_plan_path
-    else
+    
       admin_path
-    end
+
     end
  
 end
