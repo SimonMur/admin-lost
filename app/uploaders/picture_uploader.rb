@@ -3,7 +3,7 @@ class PictureUploader < CarrierWave::Uploader::Base
   # Include RMagick or MiniMagick support:
   # include CarrierWave::RMagick
   include Cloudinary::CarrierWave
-  include Piet::CarrierWaveExtension
+
  
   # Choose what kind of storage to use for this uploader:
 
