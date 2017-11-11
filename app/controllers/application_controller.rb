@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+	  protect_from_forgery with: :exception
   # reset captcha code after each request for security
   after_action :reset_last_captcha_code!
 before_action :load_notification
@@ -10,6 +11,6 @@ before_action :load_notification
 	else
 	end
 	end
-  protect_from_forgery with: :exception
+
 
 end
