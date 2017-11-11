@@ -2,6 +2,12 @@
 <%=render 'pages/leftbar'%>
 <div class="top-dashboard-row" style="padding-top: 20px; padding-bottom: 20px;">
 <div class="container">
+ <% flash.each do |key, value| %>
+    <div class="alert alert-<%= key %> alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <%= value %>
+    </div>
+<% end %>
 <div class="col-md-6">
 <h4>Front View</h4>
 <%= cl_image_tag @lostitem.picture_front_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 0}] %>
