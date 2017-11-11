@@ -6,7 +6,7 @@ class LostitemsController < ApplicationController
   def index
     @lostitems = current_user.lostitems
     @notifications = current_user.notifications.limit(3)
-    
+    @lostitems = current_user.lostitems.search(params[:search])
   end
 
   # GET /lostitems/1

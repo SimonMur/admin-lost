@@ -29,24 +29,16 @@ ss
   <%= @lostitem.id_number %>
 </p>
 <hr>
+
+
+</div>
+<div class="col-md-6">
+<p>
 <p>
   <strong>County of birth:</strong><br>
   <%= @lostitem.county_born%>
 </p>
 <hr>
-<p>
-  <strong>Front Picture:</strong><br>
-  <%= @lostitem.picture_front %>
-</p>
-<hr>
-<p>
-  <strong>Back Picture:</strong><br>
-  <%= @lostitem.picture_back %>
-</p>
-<hr>
-</div>
-<div class="col-md-6">
-<p>
   <strong>Document Date of birth:</strong><br>
   <%= @lostitem.date_of_birth %>
 </p>
@@ -71,9 +63,12 @@ ss
   <%= @lostitem.description %>
 </p>
 <hr>
-
-<%= link_to 'Edit Document', edit_lostitem_path(@lostitem), class: 'btn btn-sm btn-info' %> |
-<%= link_to 'All Documents', lostitems_path, class: 'btn btn-sm btn-default' %>
 </div>
+<hr>
+<%= link_to 'Edit Document', edit_lostitem_path(@lostitem), class: 'btn btn-sm btn-info' %> |
+<%= link_to 'Record a new lost item', new_lostitem_path, class: 'btn btn-sm btn-primary' %> |
+<%= link_to 'Complete', lostitems_path, class: 'btn btn-sm btn-default' %> 
+
+
 </div>
 </div>
