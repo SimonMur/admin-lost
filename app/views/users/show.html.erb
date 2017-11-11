@@ -8,7 +8,7 @@
 <% if @user.picture.nil? %>
  <a href="#"><img src="http://res.cloudinary.com/hea0ivien/image/upload/c_scale,h_600,w_600/v1507814026/user-icon-png-person-user-profile-icon-20_hnulmk.png" class="img-responsive center-block"></a>
 <%else %>
-<%= cl_image_tag @user.picture_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 50}] %>
+<%= cl_image_tag @user.picture_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 100}] %>
 <%end%>
 
 </div>

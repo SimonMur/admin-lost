@@ -4,12 +4,12 @@
 <div class="container">
 <div class="col-md-6">
 <h4>Front View</h4>
-<%= cl_image_tag @lostitem.picture_front_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 50}] %>
+<%= cl_image_tag @lostitem.picture_front_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 0}] %>
 
 </div>
 <div class="col-md-6">
 <h4>Back View</h4>
-<%= cl_image_tag @lostitem.picture_back_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 50}] %>
+<%= cl_image_tag @lostitem.picture_back_url :transformation => [{ :height => 200, :width => 200,:crop => "scale", :fetch_format => :auto, itemprop: "image",:radius => 0}] %>
 
 </div>
 ss
