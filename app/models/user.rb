@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  acts_as_easy_captcha
+ 
   before_create :build_default_account 
  belongs_to :plan
  has_many :lostitems
@@ -21,7 +23,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :secure_validatable, :confirmable, :lockable
-          attr_accessor :raw_address
+          attr_accessor :raw_address, :captcha
 geocoded_by :raw_address
 after_validation -> {
   self.address = self.raw_address
@@ -33,7 +35,7 @@ after_validation :reverse_geocode, unless: ->(obj) { obj.raw_address.present? },
                   
 before_create do
   o = [('1'..'9'), ('A'..'Z')].map(&:to_a).flatten
-    self.user_code ||=  (0...8).map { o[rand(o.length)] }.join
+    self.user_code ||=  (0...4).map { o[rand(o.length)] }.join
 
   end
 

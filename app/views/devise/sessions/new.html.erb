@@ -22,6 +22,9 @@
   </div>
   <div class="login-footer">
   <p style="color: rgba(0,0,0,0.7); font-size: 13px; text-align: center; font-weight: bold;">Prove you are not a robot</p>
+  <% if request.post? %>
+    <p><%= valid_captcha?(params[:captcha]) ? 'valid' : 'invalid' %> captcha</p>
+  <% end %>
 <p><%= captcha_tag %> <%= text_field_tag :captcha%></p>
 <% if devise_mapping.rememberable? -%>
     <div class="field">

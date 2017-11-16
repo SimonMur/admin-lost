@@ -1,10 +1,10 @@
 EasyCaptcha.setup do |config|
   # Cache
-  config.cache          = true
+  # config.cache          = true
   # Cache temp dir from Rails.root
-  config.cache_temp_dir = Rails.root + 'tmp' + 'captchas'
+  # config.cache_temp_dir = Rails.root + 'tmp' + 'captchas'
   # Cache size
- config.cache_size     = 500
+  # config.cache_size     = 500
   # Cache expire
   # config.cache_expire   = 1.days
 
@@ -15,8 +15,8 @@ EasyCaptcha.setup do |config|
   # config.length         = 6
 
   # Image
-  config.image_height   = 60
-  config.image_width    = 200
+   config.image_height   = 40
+  config.image_width    = 140
 
   # eSpeak
   # config.espeak do |espeak|
@@ -33,34 +33,34 @@ EasyCaptcha.setup do |config|
     # espeak.voice = nil
   # end
 
-  #configure generator
+  # configure generator
   config.generator :default do |generator|
 
     # Font
-    generator.font_size              = 50
-    generator.font_fill_color        = '#E3390F'
-    generator.font_stroke_color      = '#4FE30F'
+   generator.font_size              = 45
+    generator.font_fill_color        = 'orange'
+   generator.font_stroke_color      = 'orange'
     generator.font_stroke            = 0
     generator.font_family            = File.expand_path('../../resources/afont.ttf', __FILE__)
 
     # generator.image_background_color = "#FFFFFF"
 
     # Wave
-   generator.wave                   = true
+    generator.wave                   = true
     generator.wave_length            = (60..100)
     generator.wave_amplitude         = (3..5)
 
     # Sketch
-    # generator.sketch                 = true
-    # generator.sketch_radius          = 3
-    # generator.sketch_sigma           = 1
+    generator.sketch                 = true
+    generator.sketch_radius          = 3
+    generator.sketch_sigma           = 1
 
     # Implode
-    # generator.implode                = 0.1
+    generator.implode                = 0.1
 
     # Blur
     # generator.blur                   = true
     # generator.blur_radius            = 1
     # generator.blur_sigma             = 2
-  end
+   end
 end
