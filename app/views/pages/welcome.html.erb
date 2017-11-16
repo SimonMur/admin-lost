@@ -86,7 +86,7 @@
 <h4>Est. Revenue: Ksh. <%= current_user.lostitems.count * 70 %></h4>
 </div>
 <div class="col-md-6">
-<h4>Revenue Payable: Ksh. <%= current_user.lostitems.where(status: false).count * 70 %></h4>
+<h4>Revenue Payable: Ksh. <%= current_user.account.balance%></h4>
 </div><a href="">View price per item</a>
 <p>The figure is calculated from the delivered lostitems</p>
 </div>
