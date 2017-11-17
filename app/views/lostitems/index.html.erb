@@ -29,10 +29,14 @@
         <td><%= lostitem.date_found %></td>
         <td><%if lostitem.status== false  %><p style="color: darkgreen;">Delivered</p><%else%><p style="color: red;">Undeliverd</p> <%end%></td>
         <td>
-  <% if lostitem.status == true%>
+  <% if lostitem.status == true %>
+  <% if lostitem.pay == false %>
+  Not Paid
+  <%else%>
     <%= form_for lostitem do |f| %>
   <div><%= f.hidden_field :status, value: false %></div>
   <%= f.submit "Deliver item", class: "btn btn-sm btn-warning" %>
+  <%end%>
 <% end %>
   <% else %>
   <div style="text-align: center; ">

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171109133935) do
+ActiveRecord::Schema.define(version: 20171116105801) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
@@ -88,12 +88,13 @@ ActiveRecord::Schema.define(version: 20171109133935) do
     t.datetime "date_found"
     t.string   "description"
     t.integer  "user_id"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.string   "picture_front"
     t.string   "picture_back"
     t.string   "county_born"
     t.boolean  "status",        default: true
+    t.boolean  "pay",           default: false
     t.index ["county_id"], name: "index_lostitems_on_county_id", using: :btree
     t.index ["type_id"], name: "index_lostitems_on_type_id", using: :btree
     t.index ["user_id"], name: "index_lostitems_on_user_id", using: :btree
