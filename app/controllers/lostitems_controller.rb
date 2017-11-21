@@ -4,7 +4,7 @@ class LostitemsController < ApplicationController
   # GET /lostitems
   # GET /lostitems.json
   def index
-    @lostitems = current_user.lostitems
+    @lostitems = current_user.lostitems.paginate(page: params[:page], per_page: 10)
     @notifications = current_user.notifications.limit(3)
     @lostitems = current_user.lostitems.search(params[:search])
   end

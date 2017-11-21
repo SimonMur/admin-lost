@@ -35,7 +35,7 @@ after_validation :reverse_geocode, unless: ->(obj) { obj.raw_address.present? },
                   
 before_create do
   o = [('1'..'9'), ('A'..'Z')].map(&:to_a).flatten
-    self.user_code ||=  (0...4).map { o[rand(o.length)] }.join
+    self.user_code ||=  (0...5).map { o[rand(o.length)] }.join
 
   end
 
