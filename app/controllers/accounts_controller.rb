@@ -1,3 +1,7 @@
+require 'net/http'
+require 'net/https'
+require 'uri'
+require 'mpesa_connect'
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +14,15 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
+     key = 'xqNsAltUrvvaC8hFas9x1Z8r83KbLDkS'
+    secret = 'FRSQmM18JfSsnNs1'
+    security_password = 'Safaricom583!'
+    initiator = 'testapi'
+    amount = 200
+    party_a = '600583'
+    party_b = '254708374149'
+    client = MpesaConnect::Client.new(key, secret, security_password)
+    client.b2c_transaction(initiator, amount, party_a, party_b)
       @notifications = current_user.notifications.order('created_at DESC').limit(3)
      @transactions = Transaction.where(to_id: current_user.id).order('created_at DESC').limit(5)
   end
@@ -64,6 +77,54 @@ class AccountsController < ApplicationController
   end
 
   private
+   #Generate mpesa token
+   def generateTokken
+
+    uri = URI('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials')
+
+  http = Net::HTTP.start(uri.host, uri.port,
+  :use_ssl => uri.scheme == 'https',
+  :verify_mode => OpenSSL::SSL::VERIFY_NONE)
+
+
+
+  request = Net::HTTP::Get.new uri.request_uri
+  request.basic_auth 'xqNsAltUrvvaC8hFas9x1Z8r83KbLDkS', 'FRSQmM18JfSsnNs1'
+
+  response = http.request request # Net::HTTPResponse object
+ @token = JSON.parse(response.body)['access_token']
+ puts @token
+end
+  #STK Push
+  def sthpush
+  @token = generateTokken
+uri = URI('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest')
+
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
+request = Net::HTTP::Get.new(uri)
+request["accept"] = 'application/json'
+request["content-type"] = 'application/json'
+request["authorization"] ="Bearer @token"
+request.body = "{\"BusinessShortCode\": \"970117\",
+  \"Password\": \" \",
+  \"Timestamp\": \"Time.now\",
+  \"TransactionType\": \"CustomerPayBillOnline\",
+  \"Amount\": \"200 \",
+  \"PartyA\": \" 254714703966\",
+  \"PartyB\": \" 970117\",
+  \"PhoneNumber\": \"254714703966 \",
+  \"CallBackURL\": \"https://ip_address:port/callback\",
+  \"AccountReference\": \"1234 \",
+  \"TransactionDesc\": \"pay \"}"
+
+response = http.request(request)
+puts response.read_body
+    
+  end
+ 
     # Use callbacks to share common setup or constraints between actions.
     def set_account
       @account = Account.find(params[:id])
