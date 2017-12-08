@@ -69,54 +69,7 @@ class AccountsController < ApplicationController
   end
 
   private
-   #Generate mpesa token
-   def generateTokken
-
-    uri = URI('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials')
-
-  http = Net::HTTP.start(uri.host, uri.port,
-  :use_ssl => uri.scheme == 'https',
-  :verify_mode => OpenSSL::SSL::VERIFY_NONE)
-
-
-
-  request = Net::HTTP::Get.new uri.request_uri
-  request.basic_auth 'xqNsAltUrvvaC8hFas9x1Z8r83KbLDkS', 'FRSQmM18JfSsnNs1'
-
-  response = http.request request # Net::HTTPResponse object
- @token = JSON.parse(response.body)['access_token']
- puts @token
-end
-  #STK Push
-  def sthpush
-  @token = generateTokken
-uri = URI('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest')
-
-http = Net::HTTP.new(uri.host, uri.port)
-http.use_ssl = true
-http.verify_mode = OpenSSL::SSL::VERIFY_NONE
-
-request = Net::HTTP::Get.new(uri)
-request["accept"] = 'application/json'
-request["content-type"] = 'application/json'
-request["authorization"] ="Bearer @token"
-request.body = "{\"BusinessShortCode\": \"970117\",
-  \"Password\": \" \",
-  \"Timestamp\": \"Time.now\",
-  \"TransactionType\": \"CustomerPayBillOnline\",
-  \"Amount\": \"200 \",
-  \"PartyA\": \" 254714703966\",
-  \"PartyB\": \" 970117\",
-  \"PhoneNumber\": \"254714703966 \",
-  \"CallBackURL\": \"https://ip_address:port/callback\",
-  \"AccountReference\": \"1234 \",
-  \"TransactionDesc\": \"pay \"}"
-
-response = http.request(request)
-puts response.read_body
-    
-  end
- 
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_account
       @account = Account.find(params[:id])
