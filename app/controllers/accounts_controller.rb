@@ -1,7 +1,6 @@
 require 'net/http'
 require 'net/https'
 require 'uri'
-require 'mpesa_connect'
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
