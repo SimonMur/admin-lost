@@ -41,7 +41,8 @@ gem 'easy_captcha'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'geocoder'
-
+gem 'redis'
+gem 'redis-rails'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
