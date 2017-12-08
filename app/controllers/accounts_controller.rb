@@ -14,15 +14,7 @@ class AccountsController < ApplicationController
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-     key = 'xqNsAltUrvvaC8hFas9x1Z8r83KbLDkS'
-    secret = 'FRSQmM18JfSsnNs1'
-    security_password = 'Safaricom583!'
-    initiator = 'testapi'
-    amount = 200
-    party_a = '600583'
-    party_b = '254708374149'
-    client = MpesaConnect::Client.new(key, secret, security_password)
-    client.b2c_transaction(initiator, amount, party_a, party_b)
+
       @notifications = current_user.notifications.order('created_at DESC').limit(3)
      @transactions = Transaction.where(to_id: current_user.id).order('created_at DESC').limit(5)
   end
