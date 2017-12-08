@@ -41,6 +41,7 @@ gem 'easy_captcha'
 gem "recaptcha", require: "recaptcha/rails"
 gem 'dotenv-rails', :require => 'dotenv/rails-now'
 gem 'geocoder'
+gem 'mpesa_connect'
 gem 'redis'
 gem 'redis-rails'
 # Use jquery as the JavaScript library
