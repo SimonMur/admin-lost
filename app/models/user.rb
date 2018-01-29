@@ -23,7 +23,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :secure_validatable, :confirmable, :lockable
-          attr_accessor :raw_address, :captcha
+          attr_accessor :raw_address
 geocoded_by :raw_address
 after_validation -> {
   self.address = self.raw_address

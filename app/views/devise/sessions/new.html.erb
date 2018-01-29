@@ -12,7 +12,7 @@
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
   
-    <%= f.text_field :user_code, autofocus: true, placeholder: "User Code/ID", class: 'login-field' %>
+    <%= f.text_field :user_code, autofocus: true, placeholder: "User Code", class: 'login-field' %>
   </div>
 
   <div class="field">
@@ -24,6 +24,7 @@
   <p style="color: rgba(0,0,0,0.7); font-size: 13px; text-align: center; font-weight: bold;">Prove you are not a robot</p>
 
 <p><%= captcha_tag %> <%= text_field_tag :captcha%></p>
+
 <% if devise_mapping.rememberable? -%>
     <div class="field">
       <%= f.check_box :remember_me %>

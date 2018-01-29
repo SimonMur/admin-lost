@@ -2,6 +2,7 @@ Rails.application.routes.draw do
  
 
 
+  resources :districts
   resources :payments
   get 'searches/search'
 
@@ -20,7 +21,7 @@ get 'notifications', to: 'notifications#index'
   captcha_route
   resources :areas
   resources :counties
-
+post 'scrape' => 'accounts#scrape', as: :scrape
   devise_for :users, controllers: {registrations: 'users/registrations', sessions: 'users/sessions' }
 
   match '/users/:id',     to: 'users#show',       via: 'pacth' 

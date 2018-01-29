@@ -2,6 +2,7 @@ require 'net/http'
 require 'net/https'
 require 'uri'
 require 'mpesa_connect'
+require 'json'
 class AccountsController < ApplicationController
   before_action :set_account, only: [:show, :edit, :update, :destroy]
 
@@ -10,21 +11,42 @@ class AccountsController < ApplicationController
   def index
     @accounts = Account.all
   end
+def scrape
 
+  
+ tmobilenumber = "#{current_user.mobilenumber}".to_i
+ password = "lostitems2017"
+ code = 307522
+uri = URI('https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest')
+
+http = Net::HTTP.new(uri.host, uri.port)
+http.use_ssl = true
+http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+request = Net::HTTP::Get.new(uri)
+request["accept"] = 'application/json'
+request["content-type"] = 'application/json'
+request["authorization"] = "Bearer #{generateTokken}"
+request.body = { "InitiatorName" => "#{current_user.first_name} #{current_user.second_name}",
+ "SecurityCredential" => Base64.encode64(["#{code}", "#{password}"].join),
+  "CommandID" => "SalaryPayment",
+  "Amount" => "#{current_user.account.balance}",
+  "PartyA" => "307522",
+  "PartyB"=>  "254#{tmobilenumber}",
+  "Remarks" => "ok",
+  'QueueTimeOutURL' => 'http://lostitems.co.ke:5000/b2c/queue',
+  'ResultURL' => 'http://lostitems.co.ke:5000/b2c/result',
+  "Occasion" => "ok"}.to_json
+
+response = http.request(request)
+puts request.body
+
+puts response.body
+end
   # GET /accounts/1
   # GET /accounts/1.json
   def show
-     key = 'xqNsAltUrvvaC8hFas9x1Z8r83KbLDkS'
-    secret = 'FRSQmM18JfSsnNs1'
-    security_password = 'Safaricom583!'
-    initiator = 'testapi'
-    amount = 200
-    party_a = '600583'
-    party_b = '254708374149'
-    client = MpesaConnect::Client.new(key, secret, security_password)
-    client.b2c_transaction(initiator, amount, party_a, party_b)
-      @notifications = current_user.notifications.order('created_at DESC').limit(3)
-     @transactions = Transaction.where(to_id: current_user.id).order('created_at DESC').limit(5)
+  @notifications = current_user.notifications.order('created_at DESC').limit(3)
+  @transactions = Transaction.where(to_id: current_user.id).order('created_at DESC').limit(5)
   end
 
   # GET /accounts/new
@@ -75,13 +97,8 @@ class AccountsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
-   #Generate mpesa token
-   def generateTokken
-
-    uri = URI('https://sandbox.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials')
-
+def generateTokken
+  uri = URI('https://api.safaricom.co.ke/oauth/v1/generate?grant_type=client_credentials')
   http = Net::HTTP.start(uri.host, uri.port,
   :use_ssl => uri.scheme == 'https',
   :verify_mode => OpenSSL::SSL::VERIFY_NONE)
@@ -89,16 +106,19 @@ class AccountsController < ApplicationController
 
 
   request = Net::HTTP::Get.new uri.request_uri
-  request.basic_auth 'xqNsAltUrvvaC8hFas9x1Z8r83KbLDkS', 'FRSQmM18JfSsnNs1'
+  request.basic_auth 'PfLuMoTfVLgf6DGXb21fAD9J1O7Jjecc', 'Yxjer0vFxnBldjyZ'
 
   response = http.request request # Net::HTTPResponse object
- @token = JSON.parse(response.body)['access_token']
- puts @token
+ puts token = JSON.parse(response.body)['access_token']
+
 end
+  private
+   #Generate mpesa token
+   
   #STK Push
-  def sthpush
-  @token = generateTokken
-uri = URI('https://sandbox.safaricom.co.ke/mpesa/stkpush/v1/processrequest')
+  def paybc
+
+uri = URI('https://api.safaricom.co.ke/mpesa/b2c/v1/paymentrequest')
 
 http = Net::HTTP.new(uri.host, uri.port)
 http.use_ssl = true
@@ -107,21 +127,20 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 request = Net::HTTP::Get.new(uri)
 request["accept"] = 'application/json'
 request["content-type"] = 'application/json'
-request["authorization"] ="Bearer @token"
-request.body = "{\"BusinessShortCode\": \"970117\",
-  \"Password\": \" \",
-  \"Timestamp\": \"Time.now\",
-  \"TransactionType\": \"CustomerPayBillOnline\",
-  \"Amount\": \"200 \",
-  \"PartyA\": \" 254714703966\",
-  \"PartyB\": \" 970117\",
-  \"PhoneNumber\": \"254714703966 \",
-  \"CallBackURL\": \"https://ip_address:port/callback\",
-  \"AccountReference\": \"1234 \",
-  \"TransactionDesc\": \"pay \"}"
+request["authorization"] = "Bearer #{generateTokken}"
+request.body = "{\"InitiatorName\":\" current_user.name\",
+  \"SecurityCredential\":\" \",
+  \"CommandID\":\"SalaryPayment \",
+  \"Amount\":\"1000\",
+  \"PartyA\":\"307552 \",
+  \"PartyB\":\"@current_user.phone_number\",
+  \"Remarks\":\" ok\",
+  \"QueueTimeOutURL\":\"http://your_timeout_url\",
+  \"ResultURL\":\"http://your_result_url\",
+  \"Occasion\":\" ok\"}"
 
 response = http.request(request)
-puts response.read_body
+puts response.body
     
   end
  

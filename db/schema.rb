@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171116105801) do
+ActiveRecord::Schema.define(version: 20180129080949) do
 
   create_table "accounts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
     t.integer  "user_id"
@@ -46,6 +46,14 @@ ActiveRecord::Schema.define(version: 20171116105801) do
     t.string   "name"
     t.string   "county_code"
     t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  create_table "districts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "keyword"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end
@@ -95,6 +103,7 @@ ActiveRecord::Schema.define(version: 20171116105801) do
     t.string   "county_born"
     t.boolean  "status",        default: true
     t.boolean  "pay",           default: false
+    t.integer  "district_id"
     t.index ["county_id"], name: "index_lostitems_on_county_id", using: :btree
     t.index ["type_id"], name: "index_lostitems_on_type_id", using: :btree
     t.index ["user_id"], name: "index_lostitems_on_user_id", using: :btree
@@ -211,12 +220,14 @@ ActiveRecord::Schema.define(version: 20171116105801) do
   end
 
   create_table "usersfoundid_contacts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=latin1" do |t|
-    t.string  "Name",                    null: false
-    t.string  "Email",                   null: false
-    t.string  "Phone_Number", limit: 50, null: false
-    t.string  "id_number",               null: false
-    t.string  "Doc_name",                null: false
-    t.integer "user_id"
+    t.string   "Name",                                                         null: false
+    t.string   "Email",                                                        null: false
+    t.string   "Phone_Number", limit: 50,                                      null: false
+    t.string   "id_number",                                                    null: false
+    t.string   "Doc_name",                                                     null: false
+    t.integer  "user_id"
+    t.datetime "created_at",              default: -> { "CURRENT_TIMESTAMP" }, null: false
+    t.datetime "updated_at",              default: -> { "CURRENT_TIMESTAMP" }, null: false
   end
 
   add_foreign_key "accounts", "users"

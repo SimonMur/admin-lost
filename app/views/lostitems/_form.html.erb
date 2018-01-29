@@ -106,7 +106,7 @@
 <div class="field">
     <%= f.label :county_of_birth %><br>
 
-    <%= f.collection_select :county_born, County.all, :id, :name, {prompt: "County Born"}, {class: "form-field"} %>
+    <%= f.collection_select :distict_id, District.all, :id, :name, {prompt: "District of birth"}, {class: "form-field"} %>
 
   </div>
 
