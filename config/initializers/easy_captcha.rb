@@ -12,7 +12,7 @@ EasyCaptcha.setup do |config|
   # config.chars          = %w(2 3 4 5 6 7 9 A C D E F G H J K L M N P Q R S T U X Y Z)
 
   # Length
-  config.length         = 4
+  config.length         = 3
 
   # Image
    config.image_height   = 40
