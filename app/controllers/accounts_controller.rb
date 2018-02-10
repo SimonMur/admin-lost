@@ -25,16 +25,16 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 request = Net::HTTP::Get.new(uri)
 request["accept"] = 'application/json'
 request["content-type"] = 'application/json'
-request["authorization"] = "Bearer #{generateTokken}"
-request.body = { "InitiatorName" => "#{current_user.first_name} #{current_user.second_name}",
+request["authorization"] = "Bearer q8gp53fdaYXQYxvCxJj2pl0Jjcsl"
+request.body = { "InitiatorName" => "webcloud",
  "SecurityCredential" => Base64.encode64(["#{code}", "#{password}"].join),
   "CommandID" => "SalaryPayment",
   "Amount" => "#{current_user.account.balance}",
   "PartyA" => "307522",
   "PartyB"=>  "254#{tmobilenumber}",
   "Remarks" => "ok",
-  'QueueTimeOutURL' => 'http://lostitems.co.ke:5000/b2c/queue',
-  'ResultURL' => 'http://lostitems.co.ke:5000/b2c/result',
+  'QueueTimeOutURL' => 'https://lostitems.co.ke:5000/b2c/queue',
+  'ResultURL' => 'https://lostitems.co.ke:5000/b2c/result',
   "Occasion" => "ok"}.to_json
 
 response = http.request(request)

@@ -1,7 +1,7 @@
 <%= form_for(lostitem) do |f| %>
   <% if lostitem.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(lostitem.errors.count, "error") %> prohibited this lostitem from being saved:</h2>
+    <div id="error_explanation" class="alert alert-danger">
+      <h4> You have <%= pluralize(lostitem.errors.count, "error") %> below: </h4>
 
       <ul>
       <% lostitem.errors.full_messages.each do |message| %>
