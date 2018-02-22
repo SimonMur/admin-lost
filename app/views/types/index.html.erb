@@ -5,7 +5,9 @@
 <table>
   <thead>
     <tr>
+    <th>Key</th>
       <th>Name</th>
+      <th>Price</th>
       <th>Description</th>
       <th colspan="3"></th>
     </tr>
@@ -14,6 +16,7 @@
   <tbody>
     <% @types.each do |type| %>
       <tr>
+        <td><%= type.id %></td>
         <td><%= type.name %></td>
         <td><%= type.price %></td>
         <td><%= type.description %></td>
