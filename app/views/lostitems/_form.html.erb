@@ -104,7 +104,7 @@
     <%= f.date_field :date_of_birth, class: 'form-field'  %>
   </div>
 <div class="field">
-    <%= f.label :county_of_birth %><br>
+    <%= f.label :district_of_birth %><br>
 
     <%= f.collection_select :district_id, District.all, :id, :name, {prompt: "District of birth"}, {class: "form-field"} %>
 
@@ -173,7 +173,7 @@
 
   
   <div class="field">
-    <%= f.label :county_of_birth %><br>
+    <%= f.label :district_of_birth %><br>
 
      <%= f.collection_select :district_id, District.all, :id, :name, {prompt: "District of birth"}, {class: "form-field"} %>
 
@@ -242,7 +242,7 @@
 
  
   <div class="field">
-    <%= f.label :county_of_birth %><br>
+    <%= f.label :district_of_birth %><br>
 
    <%= f.collection_select :district_id, District.all, :id, :name, {prompt: "District of birth"}, {class: "form-field"} %>
 
